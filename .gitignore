@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+#video
+public/media/videos/video_escuelas_terpel.mp4
