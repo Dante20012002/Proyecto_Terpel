@@ -1,0 +1,30 @@
+---
+const archivosPDF = [
+  "Boletín EDS Confiable N 75.pdf",
+  "Boletín EDS Confiable N 76.pdf",
+  "Boletín EDS Confiable N 77.pdf",
+  "Boletín EDS Confiable N 78.pdf",
+  "Boletín EDS Confiable No 80.pdf"
+];
+---
+
+<style>
+  .pdf-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(45%, 1fr)); /* Dos columnas */
+    gap: 20px; /* Espacio entre PDFs */
+    padding: 20px;
+  }
+
+  iframe {
+    width: 100%;
+    height: 500px; /* Ajusta la altura según necesites */
+    border: 1px solid #ccc;
+  }
+</style>
+
+<div class="pdf-container">
+  {archivosPDF.map((archivo) => (
+    <iframe src={`/media/docs/Boletines/${archivo}`} loading="lazy"></iframe>
+  ))}
+</div>

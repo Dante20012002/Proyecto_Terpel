@@ -1,0 +1,221 @@
+@font-face {
+    font-family: 'fuenteTerpel';
+    src: url('../styles/fonts/Terpel-Sans-ExtraBold-Condensed.woff2') format('woff2');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'fuenteTerpelLibiana';
+    src: url('../styles/fonts/Terpel-Sans-Medium-Condensed.woff2') format('woff2');
+    font-display: swap;
+}
+
+body{
+    font-family: 'fuenteTerpel', sans-serif;
+    color: #F3FFFF;
+}
+
+.scroll-nav {
+    transition: all 0.3s ease; /* Transición suave */
+    background: transparent; /* Fondo inicial */
+}
+
+/* Estilos al hacer scroll */
+.scroll-nav.scrolled {
+    position: fixed !important;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: white; /* Fondo al hacer scroll */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Sombra */
+}
+
+.navbar {
+    background-color: #1A3A42;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Sombra inferior */
+
+}
+
+.navbar-nav {
+    display: flex;
+    
+    align-items: flex-end;
+}
+
+.navbar-brand {
+    color: #F3FFFF;
+}
+
+.carousel-inner {
+
+    display: flex;
+    justify-self: center;
+}
+
+.carousel-item {
+    flex: 0 0 100%; /* Cada item ocupa el 100% del ancho del contenedor */
+}
+
+/* Estilos base para los enlaces de navegación */
+.nav-link {
+    font-family: 'fuenteTerpelLibiana';
+    position: relative; /* Necesario para el pseudo-elemento */
+    text-decoration: none; /* Elimina el subrayado por defecto */
+    color: inherit; /* Hereda el color del texto */
+    transition: color 0.3s ease; /* Transición suave para el color del texto */
+}
+
+/* Efecto de hover para el subrayado */
+.nav-link:hover {
+    color: #FF0818; /* Cambia el color del texto al hacer hover */
+}
+
+.navbar-brand:hover {
+    color: #C9D6D7; /* Cambia el color del texto al hacer hover */
+}
+
+/* Pseudo-elemento para el subrayado animado */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px; /* Ajusta la posición del subrayado */
+    width: 100%;
+    height: 2px; /* Grosor del subrayado */
+    background-color: #FF0818; /* Color del subrayado */
+    transform: scaleX(0); /* Inicialmente, el subrayado no es visible */
+    transform-origin: bottom right;
+    transition: transform 0.3s ease; /* Transición suave para el subrayado */
+}
+
+/* Efecto de hover para el pseudo-elemento */
+.nav-link:hover::after {
+    transform: scaleX(1); /* Hace visible el subrayado */
+    transform-origin: bottom left;
+}
+
+/* Aplicar el subrayado animado a los enlaces dentro del dropdown */
+.dropdown-menu .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background-color: #FF0818;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-menu .nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.espace {
+    height: 11.1vh;
+}
+
+.cont_banner_sec_3 {
+    
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-image: url("../../public/media/img/Terpel_logosimbolo_Vertical_rojo.png");
+    position: relative;
+    padding: 5%;
+}
+
+.cont_banner_sec_3 .row {
+    background-color: rgba(1, 1, 1, 0.6);
+    color: #fff;
+    padding: 2%;
+}
+
+.regionales {
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    padding: 5%;
+}
+
+.persona {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+}
+
+.cont_banner_sec_2 {
+    
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-image: url("../../public/media/img/Terpel_logosimbolo_Vertical_rojo.png");
+    position: relative;
+    padding: 5%;
+}
+
+.cont_banner_sec_2 .row {
+    background-color: rgba(1, 1, 1, 0.6);
+    color: #fff;
+    padding: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info_escuelas {
+    padding: 5%;
+    background-color: #1A3A42;
+}
+
+footer {
+    background-color: #1A3A42;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.btn {
+    background-color: #FF0818;
+    color: #F3FFFF;
+    border-color: #1A3A42;
+}
+
+.tooltip {
+    position: absolute;
+    background-color: #1A3A42;
+    color: #F3FFFF;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    pointer-events: none; /* Evita que el tooltip interfiera con los clics */
+}
+  
+.tooltip.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.tituloreg {
+    color: #1A3A42;
+}
+
+@media (min-width: 895px) {
+    .dropdown:hover .dropdown-menu {
+      display: block;
+      margin-top: 0;
+    }
+    
+  }
+
+@media (max-height: 680px) {
+    .espace {
+        height: 15vh;
+    }
+}

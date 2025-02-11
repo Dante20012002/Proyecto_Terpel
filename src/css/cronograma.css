@@ -1,0 +1,36 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Color de fondo general */
+}
+
+.header {
+    background-color: #F3FFFF; /* Color de fondo del encabezado */
+    color: #1A3A42;
+    padding: 20px;
+    text-align: center;
+}
+
+.header img {
+    max-width: 200px;
+    margin-bottom: 10px;
+}
+
+.cronograma{
+    width: 100%;
+    padding: 2%;
+}
+
+.image_cron {
+    max-width: unset !important;
+    width: 200vh;
+    height: auto;
+}
+
+@media (max-width: 895px) {
+    .image_cron {
+        width: 50vh;
+        height: 50%;
+    }
+}
