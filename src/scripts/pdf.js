@@ -13,11 +13,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const iframe = document.createElement("iframe");
     iframe.src = `/media/docs/Boletines/${archivo}`;
     iframe.width = "100%";
-    iframe.height = "500px"; // Ajusta la altura según necesites
-    iframe.style.border = "1px solid #ccc";
-
+    iframe.height = "100px"; // Ajusta la altura según necesites
     const div = document.createElement("div");
-    div.style.marginBottom = "20px"; // Espaciado entre PDFs
+    div.style.marginBottom = "50px"; // Espaciado entre PDFs
+    div.style.padding = "20px"
     div.appendChild(iframe);
     pdfContainer.appendChild(div);
   });

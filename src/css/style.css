@@ -33,12 +33,10 @@ body{
 .navbar {
     background-color: #1A3A42;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Sombra inferior */
-
 }
 
 .navbar-nav {
     display: flex;
-    
     align-items: flex-end;
 }
 
@@ -46,14 +44,12 @@ body{
     color: #F3FFFF;
 }
 
-.carousel-inner {
-
-    display: flex;
-    justify-self: center;
+.carousel-item {
+    height: 90vh;
 }
 
-.carousel-item {
-    flex: 0 0 100%; /* Cada item ocupa el 100% del ancho del contenedor */
+.carrus_img {
+    object-fit: contain !important;
 }
 
 /* Estilos base para los enlaces de navegación */
@@ -123,7 +119,7 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     background-size: auto;
-    background-image: url("../../public/media/img/Terpel_logosimbolo_Vertical_rojo.png");
+    background-image: url("../../media/img/Terpel_logosimbolo_Vertical_rojo.png");
     position: relative;
     padding: 5%;
 }
