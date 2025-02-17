@@ -7,5 +7,7 @@ import node from '@astrojs/node';
 export default defineConfig({
   adapter: node({
     mode: 'standalone'
-  })
+  }),
+  site: 'https://Dante20012002.github.io',
+  base: 'mi-repo',
 });
