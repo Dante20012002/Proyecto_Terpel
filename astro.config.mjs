@@ -9,5 +9,5 @@ export default defineConfig({
     mode: 'standalone'
   }),
   site: 'https://Dante20012002.github.io',
-  base: 'mi-repo',
+  base: '/Proyecto_Terpel/',
 });
