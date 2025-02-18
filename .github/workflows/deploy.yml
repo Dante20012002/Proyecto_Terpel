@@ -21,6 +21,9 @@ jobs:
         uses: withastro/action@v3
         with:
           package-manager: pnpm@10 # Ajusta según tu versión
+      
+      - name: List files in dist
+        run: ls -R dist
 
   deploy:
     needs: build
@@ -32,3 +35,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
