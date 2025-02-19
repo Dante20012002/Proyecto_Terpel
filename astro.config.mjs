@@ -8,6 +8,6 @@ export default defineConfig({
   adapter: node({
     mode: 'standalone'
   }),
-  site: '*.ngrok-free.app',
+  site: 'https://09e2-186-113-76-154.ngrok-free.app',
   base: '/Proyecto_Terpel/',
 });
