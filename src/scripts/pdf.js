@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   archivosPDF.forEach((archivo) => {
     const iframe = document.createElement("iframe");
-    iframe.src = `/media/docs/Boletines/${archivo}`;
+    iframe.src = `/public/media/docs/Boletines/${archivo}`;
     iframe.width = "100%";
     iframe.height = "100px"; // Ajusta la altura según necesites
     const div = document.createElement("div");
