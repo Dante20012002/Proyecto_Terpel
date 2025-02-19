@@ -8,6 +8,6 @@ export default defineConfig({
   adapter: node({
     mode: 'standalone'
   }),
-  site: 'https://Dante20012002.github.io',
+  site: '*.ngrok-free.app',
   base: '/Proyecto_Terpel/',
 });
