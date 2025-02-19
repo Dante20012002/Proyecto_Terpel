@@ -9,5 +9,4 @@ export default defineConfig({
     mode: 'standalone'
   }),
   site: 'https://09e2-186-113-76-154.ngrok-free.app',
-  base: '/Proyecto_Terpel/',
 });
