@@ -21,10 +21,15 @@ const archivosPDF = [
     height: 500px; /* Ajusta la altura según necesites */
     border: 1px solid #ccc;
   }
+
+  .title_pdf {
+    position: relative;
+  }
 </style>
 
 <div class="pdf-container">
   {archivosPDF.map((archivo) => (
+    <h2 class="title_pdf text-center">{archivo}</h2>
     <iframe src={`/media/docs/Boletines/${archivo}`} loading="lazy"></iframe>
   ))}
 </div>

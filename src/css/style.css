@@ -119,7 +119,7 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     background-size: auto;
-    background-image: url("../../media/img/Terpel_logosimbolo_Vertical_rojo.png");
+    /* background-image: url("../../media/img/Terpel_logosimbolo_Vertical_rojo.png"); */
     position: relative;
     padding: 5%;
 }
@@ -149,7 +149,7 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     background-size: auto;
-    background-image: url("../../public/media/img/Terpel_logosimbolo_Vertical_rojo.png");
+    /* background-image: url("../../public/media/img/Terpel_logosimbolo_Vertical_rojo.png"); */
     position: relative;
     padding: 5%;
 }
