@@ -3,6 +3,7 @@ import Metodologia from "../components/Metodologias.astro";
 import Footer from "../components/Footer.astro";
 import Navigation from "../components/Navigation.astro";
 import Temas from "../components/Temas.astro";
+import ProgressBar from "../components/progress_bar.astro";
 
 ---
 
@@ -17,9 +18,11 @@ import Temas from "../components/Temas.astro";
 		<meta name="generator" content={Astro.generator} />
 		<title>Escuelas 360</title>
 	</head>
+  
 	<body>
+    
 		<Navigation />
-    <div class="espace"></div>
+    <ProgressBar />
 		<div
       id="carouselExampleAutoplaying"
       class="carousel slide"
