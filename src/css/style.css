@@ -136,11 +136,23 @@ body{
 }
 
 .tarjeta {
-    view-timeline-name: --image;
-    view-timeline-axis: block;
-    animation-timeline: --image;
-    animation-name: slideInDown;
-    animation-range: entry 25% cover 50%;
+    animation: reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 30% cover 40%;
+    animation-timing-function: ease-out;
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    translate: 0 100px;
+    scale: .5;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1;
+  }
 }
 
 @keyframes slideInDown {
