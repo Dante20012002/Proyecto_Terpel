@@ -8,11 +8,11 @@ export default defineConfig({
   adapter: node({
     mode: 'standalone'
   }),
-  
-  vite: {
-    server: {
-      allowedHosts: ['https://dante20012002.github.io/Proyecto_Terpel/'], // permisos de dominio
-    },
+  site: "https://github.com/Dante20012002/Proyecto_Terpel",
+  // vite: {
+  //   server: {
+  //     allowedHosts: ['https://dante20012002.github.io/Proyecto_Terpel/'], // permisos de dominio
+  //   },
     
-  },
+  // },
 });
