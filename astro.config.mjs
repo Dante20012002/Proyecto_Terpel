@@ -5,6 +5,7 @@ import node from '@astrojs/node';
 
 // https://astro.build/config
 export default defineConfig({
+  outDir: 'dist',
   adapter: node({
     mode: 'standalone'
   }),
