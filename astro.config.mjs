@@ -11,7 +11,7 @@ export default defineConfig({
   
   vite: {
     server: {
-      allowedHosts: ['http://127.0.0.1:5500/'], // permisos de dominio
+      allowedHosts: ['https://dante20012002.github.io/Proyecto_Terpel/'], // permisos de dominio
     },
     
   },
