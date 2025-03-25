@@ -24,6 +24,9 @@ jobs:
       
       - name: List files in dist
         run: ls -R dist
+        
+      - name: Move files to root dist
+        run: mv dist/client/* dist/
 
   deploy:
     needs: build
