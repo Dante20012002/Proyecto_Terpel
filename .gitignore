@@ -27,3 +27,5 @@ pnpm-debug.log*
 public/media/videos/video_escuelas_terpel.mp4
 
 dist/client/media/videos/
+
+*.mp4
