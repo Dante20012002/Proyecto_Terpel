@@ -1,5 +1,3 @@
-# build output
-dist/
 
 # generated types
 .astro/
@@ -26,6 +24,6 @@ pnpm-debug.log*
 #video
 public/media/videos/video_escuelas_terpel.mp4
 
-dist/client/media/videos/
+dist/client/media/videos/video_escuelas_terpel.mp4
 
 *.mp4
