@@ -22,11 +22,11 @@ jobs:
         with:
           package-manager: pnpm@10 # Ajusta según tu versión
       
-      # - name: List files in dist
-      #   run: ls -R dist
+      - name: List files in dist
+        run: ls -R dist
         
-      # - name: Move files to root dist
-      #   run: mv dist/client/*
+      - name: Move files to root dist
+        run: mv dist/client/*
 
   deploy:
     needs: build
