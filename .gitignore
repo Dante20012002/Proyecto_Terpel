@@ -1,3 +1,5 @@
+# dist
+dist/
 
 # generated types
 .astro/
