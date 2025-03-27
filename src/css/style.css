@@ -155,6 +155,10 @@ body{
   }
 }
 
+.tarjeta.animada {
+    animation: none; /* Desactiva la animación después de la primera vez */
+}
+
 @keyframes slideInDown {
     from {
         transform: translate3d(0,-50%, 0);

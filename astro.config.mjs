@@ -9,7 +9,7 @@ export default defineConfig({
     mode: 'standalone'
   }),
   site: "https://github.com/Dante20012002/Proyecto_Terpel",
-  base: "Proyecto_Terpel",
+  // base: "Proyecto_Terpel",
   // vite: {
   //   server: {
   //     allowedHosts: ['https://dante20012002.github.io/Proyecto_Terpel/'], // permisos de dominio
