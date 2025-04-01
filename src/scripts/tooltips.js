@@ -12,12 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
       const tooltipText = area.dataset.originalTitle;
       tooltip.textContent = tooltipText;
       tooltip.classList.add('active');
-
-      // Posiciona el tooltip
-      const x = e.clientX + 10;
-      const y = e.clientY + 10;
-      tooltip.style.left = `${x}px`;
-      tooltip.style.top = `${y}px`;
     });
 
     area.addEventListener('mouseleave', function () {
@@ -33,8 +27,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     area.addEventListener('mousemove', function (e) {
       // Mueve el tooltip con el cursor
-      const x = e.clientX + 10;
-      const y = e.clientY + 10;
+      const x = e.clientX;
+      const y = e.clientY;
       tooltip.style.left = `${x}px`;
       tooltip.style.top = `${y}px`;
     });

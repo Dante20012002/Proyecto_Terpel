@@ -1,6 +1,7 @@
 ---
 import Footer from "../components/Footer.astro";
 import Navigation from "../components/Navigation.astro";
+import ProgressBar from "../components/Progress_bar.astro";
 ---
 
 <!doctype html>
@@ -16,7 +17,7 @@ import Navigation from "../components/Navigation.astro";
 	</head>
 	<body>
     <Navigation />
-		<div class="espace"></div>
+		<ProgressBar />
 		<div class="header">
 			<img class="img-fluid"  src="../../media/img/Logo Terpel Escuelas.png" alt="Escuelas Terpel" width="500" height="250">
 			<h1>Escuelas Terpel</h1>
@@ -31,4 +32,8 @@ import Navigation from "../components/Navigation.astro";
 	</div>
 	<Footer />
   </body>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+	crossorigin="anonymous">
+	</script>
 </html>
