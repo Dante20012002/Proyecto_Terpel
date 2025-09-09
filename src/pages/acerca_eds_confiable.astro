@@ -1,0 +1,726 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import ProgressBar from '../components/Progress_bar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Acerca de EDS Confiable - Escuelas 360" description="Conoce todo sobre EDS Confiable: sistema operativo integral para estaciones de servicio que une seguridad, salud en el trabajo, ambiente y calidad del combustible.">
+  <Navigation />
+  <ProgressBar />
+  
+  <main class="pt-24 pb-16 min-h-screen bg-gradient-to-br from-gray-50 to-white">
+    <div class="container-custom">
+      <!-- Hero Section -->
+      <div class="text-center mb-16" data-aos="fade-up">
+        <div class="flex justify-center items-center mb-6">
+          <img
+            class="w-auto h-32 md:h-40 mx-auto"
+            src="/media/img/Logo Terpel Escuelas.png"
+            alt="Escuelas Terpel"
+          >
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold text-terpel-secondary mb-6">
+          EDS Confiable
+        </h1>
+        <h2 class="text-2xl md:text-3xl text-terpel-primary mb-6">
+          Sistema Operativo Integral para Estaciones de Servicio
+        </h2>
+        <p class="text-xl text-gray-600 max-w-4xl mx-auto mb-8">
+          Una solución completa que integra seguridad, salud en el trabajo, gestión ambiental y control de calidad del combustible para garantizar operaciones excelentes y seguras.
+        </p>
+        <div class="w-24 h-1 bg-terpel-primary mx-auto"></div>
+      </div>
+
+      <!-- ¿Qué es EDS Confiable? -->
+      <section class="mb-16" data-aos="fade-up">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+          <div class="bg-gradient-to-r from-[#FF0818] to-[#B50000] p-6">
+            <div class="flex items-center text-white">
+              <svg class="w-8 h-8 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014.846 21H9.154a3.374 3.374 0 00-2.749-1.447l-.547-.547z"></path>
+              </svg>
+              <h3 class="text-2xl font-bold">¿Qué es EDS Confiable y para qué sirve?</h3>
+            </div>
+          </div>
+          <div class="p-8">
+            <p class="text-lg text-gray-700 leading-relaxed mb-6">
+              Es un <strong>sistema operativo integral para EDS</strong> que une seguridad y salud en el trabajo, ambiente y calidad del combustible. El manual recorre todos los procesos típicos de una estación —recibo, almacenamiento, suministro, servicios complementarios y trabajos de mantenimiento/proyectos—, identifica los riesgos principales y fija controles y evidencias que deben mantenerse y auditarse.
+            </p>
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
+              <p class="text-blue-800">
+                <strong>📋 Importante:</strong> La identificación de riesgos se formaliza en matrices de peligros y de aspectos/impactos ambientales, que deben actualizarse al menos una vez al año o cuando cambien procesos, infraestructura o normas.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Alcance Operativo -->
+      <section class="mb-16" data-aos="fade-up" data-aos-delay="100">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+          <div class="bg-gradient-to-r from-[#1A3A42] to-[#7C0000] p-6">
+            <div class="flex items-center text-white">
+              <svg class="w-8 h-8 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+              </svg>
+              <h3 class="text-2xl font-bold">Alcance Operativo - ¿Qué cubre en la EDS?</h3>
+            </div>
+          </div>
+          <div class="p-8">
+            <div class="grid md:grid-cols-2 gap-8">
+              <!-- Procesos Clave -->
+              <div>
+                <h4 class="text-xl font-semibold text-terpel-secondary mb-4 flex items-center">
+                  <svg class="w-6 h-6 mr-2 text-terpel-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                  </svg>
+                  Procesos Clave
+                </h4>
+                <ul class="space-y-2 text-gray-700">
+                  <li class="flex items-start">
+                    <span class="w-2 h-2 bg-terpel-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    <span><strong>Recibo de combustible</strong></span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="w-2 h-2 bg-terpel-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    <span><strong>Almacenamiento</strong></span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="w-2 h-2 bg-terpel-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    <span><strong>Despacho al cliente</strong></span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="w-2 h-2 bg-terpel-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    <span><strong>Servicios complementarios</strong> (tienda, lubricentro, autolavado)</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="w-2 h-2 bg-terpel-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    <span><strong>Actividades de mantenimiento y proyectos</strong></span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Tipos de Riesgos -->
+              <div>
+                <h4 class="text-xl font-semibold text-terpel-secondary mb-4 flex items-center">
+                  <svg class="w-6 h-6 mr-2 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                  </svg>
+                  Tipos de Riesgos Identificados
+                </h4>
+                <div class="space-y-4">
+                  <div class="border-l-4 border-red-500 pl-4">
+                    <strong class="text-red-700">🔥 Riesgos de Seguridad:</strong>
+                    <p class="text-sm text-gray-600">Incendio/explosión, eléctricos, mecánicos, locativos, biológicos, psicosociales</p>
+                  </div>
+                  <div class="border-l-4 border-green-500 pl-4">
+                    <strong class="text-green-700">🌱 Riesgos Ambientales:</strong>
+                    <p class="text-sm text-gray-600">Derrames/fugas, residuos, vertimientos</p>
+                  </div>
+                  <div class="border-l-4 border-blue-500 pl-4">
+                    <strong class="text-blue-700">⚗️ Riesgos de Calidad:</strong>
+                    <p class="text-sm text-gray-600">Contaminación de producto</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Integridad de Equipos -->
+            <div class="mt-8 bg-gray-50 rounded-lg p-6">
+              <h4 class="text-xl font-semibold text-terpel-secondary mb-4 flex items-center">
+                <svg class="w-6 h-6 mr-2 text-terpel-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                Integridad de Equipos e Infraestructura
+              </h4>
+              <p class="text-gray-700">
+                <strong>Controles diarios</strong> sobre cajas contenedoras, bombas sumergibles y tanques de almacenamiento (hermeticidad, presencia súbita de agua, salmuera en doble pared, etc.), con <strong class="text-red-600">acciones inmediatas</strong> si hay fallas.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Componentes y Programas -->
+      <section class="mb-16" data-aos="fade-up" data-aos-delay="200">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-terpel-secondary mb-4">
+            Componentes y Programas del Manual
+          </h2>
+          <div class="w-24 h-1 bg-terpel-primary mx-auto"></div>
+        </div>
+
+        <div class="grid gap-8">
+          <!-- 1. Identificación de Riesgos -->
+          <div class="bg-white rounded-2xl shadow-xl overflow-hidden" data-aos="fade-right">
+            <div class="bg-gradient-to-r from-[#FFE500] to-[#FDB913] p-6">
+              <div class="flex items-center text-gray-800">
+                <div class="bg-black bg-opacity-20 rounded-full p-3 mr-4">
+                  <span class="text-2xl font-bold text-white">1</span>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold">Identificación de Riesgos y Permisos de Trabajo</h3>
+                </div>
+              </div>
+            </div>
+            <div class="p-8">
+              <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h4 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                    <svg class="w-5 h-5 mr-2 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                    ATS y Permisos
+                  </h4>
+                  <p class="text-gray-700 mb-4">
+                    Antes de cualquier labor (especialmente alto riesgo), primero se diligencia <strong>ATS (vigencia 8 días)</strong> y luego el <strong>permiso de trabajo (máx. 10 horas)</strong>.
+                  </p>
+                  <div class="bg-red-50 border border-red-200 rounded-lg p-4">
+                    <p class="text-red-800 text-sm">
+                      <strong>⚠️ Importante:</strong> Si algo no cumple, no se inicia la actividad.
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <h4 class="text-lg font-semibold text-gray-800 mb-4">Tipos de Permisos</h4>
+                  <ul class="space-y-2 text-sm text-gray-700">
+                    <li class="flex items-center"><span class="w-2 h-2 bg-red-400 rounded-full mr-2"></span>Trabajo general</li>
+                    <li class="flex items-center"><span class="w-2 h-2 bg-red-400 rounded-full mr-2"></span>En caliente</li>
+                    <li class="flex items-center"><span class="w-2 h-2 bg-red-400 rounded-full mr-2"></span>Eléctrico</li>
+                    <li class="flex items-center"><span class="w-2 h-2 bg-red-400 rounded-full mr-2"></span>En alturas</li>
+                    <li class="flex items-center"><span class="w-2 h-2 bg-red-400 rounded-full mr-2"></span>Excavación</li>
+                    <li class="flex items-center"><span class="w-2 h-2 bg-red-400 rounded-full mr-2"></span>Espacios confinados</li>
+                    <li class="flex items-center"><span class="w-2 h-2 bg-red-400 rounded-full mr-2"></span>Desacople de equipos</li>
+                  </ul>
+                  <p class="text-sm text-gray-600 mt-4">
+                    <strong>Roles definidos:</strong> emisor, ejecutor, supervisor
+                  </p>
+                </div>
+              </div>
+              
+              <div class="mt-6 bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                <h5 class="font-semibold text-yellow-800 mb-2">🏗️ Trabajo en Alturas</h5>
+                <p class="text-yellow-700 text-sm">
+                  Checklist específico (equipo contra caídas, líneas de vida, condiciones del área) y registro firmado por trabajador autorizado y coordinador. <strong>Si hay novedad, se suspende la actividad.</strong>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Programas de Salud y Seguridad -->
+          <div class="bg-white rounded-2xl shadow-xl overflow-hidden" data-aos="fade-left">
+            <div class="bg-gradient-to-r from-[#F3FFFF] to-[#1A3A42] p-6">
+              <div class="flex items-center text-gray-800">
+                <div class="bg-[#1A3A42] rounded-full p-3 mr-4">
+                  <span class="text-2xl font-bold text-white">2</span>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold">Programas de Salud y Seguridad</h3>
+                </div>
+              </div>
+            </div>
+            <div class="p-8">
+              <div class="grid md:grid-cols-3 gap-6">
+                <div class="border border-gray-200 rounded-lg p-4">
+                  <div class="flex items-center mb-3">
+                    <svg class="w-6 h-6 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728L5.636 5.636m12.728 12.728L12 12m6.364 6.364L12 12m0 0L5.636 5.636M12 12l6.364-6.364M12 12l-6.364 6.364"></path>
+                    </svg>
+                    <h4 class="font-semibold text-gray-800">Sustancias Psicoactivas</h4>
+                  </div>
+                  <ul class="text-sm text-gray-700 space-y-1">
+                    <li>• Política definida</li>
+                    <li>• Señalización espacios libres de humo</li>
+                    <li>• Pruebas aleatorias alcohol y drogas</li>
+                    <li>• Criterios por ingreso, sospecha o programación</li>
+                  </ul>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg p-4">
+                  <div class="flex items-center mb-3">
+                    <svg class="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                    </svg>
+                    <h4 class="font-semibold text-gray-800">Higiene Postural</h4>
+                  </div>
+                  <ul class="text-sm text-gray-700 space-y-1">
+                    <li>• Técnicas seguras</li>
+                    <li>• Manejo tapas de bombas</li>
+                    <li>• Trabajo con rejillas</li>
+                    <li>• Pausas activas</li>
+                  </ul>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg p-4">
+                  <div class="flex items-center mb-3">
+                    <svg class="w-6 h-6 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    </svg>
+                    <h4 class="font-semibold text-gray-800">Bioseguridad (COVID-19)</h4>
+                  </div>
+                  <ul class="text-sm text-gray-700 space-y-1">
+                    <li>• Protocolos de limpieza</li>
+                    <li>• Ventilación adecuada</li>
+                    <li>• Distanciamiento social</li>
+                    <li>• Hábitos de autocuidado</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Gestión Ambiental -->
+          <div class="bg-white rounded-2xl shadow-xl overflow-hidden" data-aos="fade-right">
+            <div class="bg-gradient-to-r from-[#B50000] to-[#FF0818] p-6">
+              <div class="flex items-center text-white">
+                <div class="bg-white bg-opacity-20 rounded-full p-3 mr-4">
+                  <span class="text-2xl font-bold">3</span>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold">Gestión Ambiental</h3>
+                </div>
+              </div>
+            </div>
+            <div class="p-8">
+              <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h4 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                    <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                    Manejo Integral de Residuos
+                  </h4>
+                  <p class="text-gray-700 mb-4">
+                    <strong>RESPEL y no RESPEL:</strong> obligaciones del generador, plan de gestión con objetivos, responsables, clasificación, rotulado, almacenamiento, manejo interno/externo y contingencias.
+                  </p>
+                  <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+                    <p class="text-green-800 text-sm">
+                      <strong>📋 Importante:</strong> El plan debe estar disponible para autoridad ambiental.
+                    </p>
+                  </div>
+                </div>
+                
+                <div>
+                  <h4 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                    <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                    IDEAM y Autoridades
+                  </h4>
+                  <ul class="space-y-2 text-sm text-gray-700">
+                    <li class="flex items-start">
+                      <span class="w-2 h-2 bg-blue-400 rounded-full mt-1 mr-2 flex-shrink-0"></span>
+                      <span>Registro como generador (actualización anual hasta el 31 de marzo)</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="w-2 h-2 bg-blue-400 rounded-full mt-1 mr-2 flex-shrink-0"></span>
+                      <span>Capacitación al personal</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="w-2 h-2 bg-blue-400 rounded-full mt-1 mr-2 flex-shrink-0"></span>
+                      <span>Plan de contingencia</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="w-2 h-2 bg-blue-400 rounded-full mt-1 mr-2 flex-shrink-0"></span>
+                      <span>Conservación certificados disposición final por 5 años</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div class="mt-6 bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                <h5 class="font-semibold text-yellow-800 mb-2 flex items-center">
+                  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                  </svg>
+                  Señales de Fuga/Contaminación
+                </h5>
+                <p class="text-yellow-700 text-sm">
+                  Baja presión/flujo en pistolas, presencia de agua o combustible en pozos, olor fuerte, etc. <strong>Ante síntomas se verifica hermeticidad y se corrige causa de inmediato.</strong>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Calidad del Combustible -->
+          <div class="bg-white rounded-2xl shadow-xl overflow-hidden" data-aos="fade-left">
+            <div class="bg-gradient-to-r from-[#7C0000] to-[#1A3A42] p-6">
+              <div class="flex items-center text-white">
+                <div class="bg-white bg-opacity-20 rounded-full p-3 mr-4">
+                  <span class="text-2xl font-bold">4</span>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold">Calidad del Combustible (Control en 3 Puntos)</h3>
+                </div>
+              </div>
+            </div>
+            <div class="p-8">
+              <div class="grid md:grid-cols-3 gap-6">
+                <div class="border-2 border-purple-200 rounded-lg p-4">
+                  <div class="flex items-center mb-3">
+                    <div class="bg-purple-100 rounded-full p-2 mr-3">
+                      <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                      </svg>
+                    </div>
+                    <h4 class="font-semibold text-purple-800">1. En el Carrotanque</h4>
+                  </div>
+                  <ul class="text-sm text-gray-700 space-y-1">
+                    <li>• Reposo del producto</li>
+                    <li>• Pomada reveladora de agua</li>
+                    <li>• Toma de muestra en frasco limpio</li>
+                    <li>• Checklist apariencia (ASTM D416-04)</li>
+                  </ul>
+                </div>
+                
+                <div class="border-2 border-blue-200 rounded-lg p-4">
+                  <div class="flex items-center mb-3">
+                    <div class="bg-blue-100 rounded-full p-2 mr-3">
+                      <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                      </svg>
+                    </div>
+                    <h4 class="font-semibold text-blue-800">2. En Tanques de Almacenamiento</h4>
+                  </div>
+                  <ul class="text-sm text-gray-700 space-y-1">
+                    <li>• Pruebas diarias de apariencia</li>
+                    <li>• Verificación de agua con equipos definidos</li>
+                    <li>• Formatos establecidos</li>
+                    <li>• Si hay indicios → limpieza inmediata</li>
+                  </ul>
+                </div>
+                
+                <div class="border-2 border-green-200 rounded-lg p-4">
+                  <div class="flex items-center mb-3">
+                    <div class="bg-green-100 rounded-full p-2 mr-3">
+                      <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                      </svg>
+                    </div>
+                    <h4 class="font-semibold text-green-800">3. En el Dispensador</h4>
+                  </div>
+                  <ul class="text-sm text-gray-700 space-y-1">
+                    <li>• Toma diaria de muestra</li>
+                    <li>• Al menos una manguera por tanque</li>
+                    <li>• Verificación visual y registro</li>
+                    <li>• Si cumple → se devuelve al tanque</li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div class="mt-8 bg-orange-50 border border-orange-200 rounded-lg p-6">
+                <h5 class="font-semibold text-orange-800 mb-3 flex items-center">
+                  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014.846 21H9.154a3.374 3.374 0 00-2.749-1.447l-.547-.547z"></path>
+                  </svg>
+                  Prueba de Arrastre de Etanol (Gasolinas Oxigenadas)
+                </h5>
+                <p class="text-orange-700 text-sm mb-3">
+                  Procedimiento con probeta/agua, lectura de interfase y rangos por % de etanol (4%, 6%, 8%, 10%) conforme a <strong>NTC 6198 y Res. 40198/2021</strong>.
+                </p>
+                <div class="bg-red-100 border border-red-200 rounded p-3">
+                  <p class="text-red-800 text-sm">
+                    <strong>⚠️ Si el resultado está fuera de rango:</strong> No se recibe y se eleva a Jefe de Zona.
+                  </p>
+                </div>
+              </div>
+              
+              <div class="mt-6 bg-gray-50 rounded-lg p-4">
+                <h5 class="font-semibold text-gray-800 mb-2">📁 Custodia y Trazabilidad</h5>
+                <p class="text-gray-700 text-sm">
+                  La responsabilidad por mantener la calidad cambia de Terpel a la EDS según quién contrata el transporte. <strong>Todos los registros deben archivarse (carpeta digital) y están sujetos a control.</strong>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Capacitación -->
+          <div class="bg-white rounded-2xl shadow-xl overflow-hidden" data-aos="fade-up">
+            <div class="bg-gradient-to-r from-[#FDB913] to-[#FFE500] p-6">
+              <div class="flex items-center text-gray-800">
+                <div class="bg-black bg-opacity-20 rounded-full p-3 mr-4">
+                  <span class="text-2xl font-bold text-white">5</span>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold">Capacitación, Roles y Evidencias</h3>
+                </div>
+              </div>
+            </div>
+            <div class="p-8">
+              <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h4 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                    <svg class="w-5 h-5 mr-2 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                    </svg>
+                    Roles y Responsabilidades
+                  </h4>
+                  <ul class="space-y-2 text-gray-700">
+                    <li class="flex items-start">
+                      <span class="w-2 h-2 bg-indigo-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span><strong>Definidos y documentados</strong> para todo el personal</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="w-2 h-2 bg-indigo-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span><strong>Comunicados claramente</strong> (incluye contratistas)</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="w-2 h-2 bg-indigo-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span><strong>Inducción obligatoria</strong> antes de iniciar labores</span>
+                    </li>
+                  </ul>
+                </div>
+                
+                <div>
+                  <h4 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                    <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                    </svg>
+                    Capacitación Continua
+                  </h4>
+                  <ul class="space-y-2 text-gray-700">
+                    <li class="flex items-start">
+                      <span class="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span><strong>Renovación anual</strong> de módulos de entrenamiento</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span><strong>Matrices de riesgos</strong> y aspectos/impactos</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span><strong>Certificados de formación</strong> archivados</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div class="mt-8 bg-indigo-50 border border-indigo-200 rounded-lg p-6">
+                <h5 class="font-semibold text-indigo-800 mb-2 flex items-center">
+                  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                  </svg>
+                  📋 Evidencias y Documentación
+                </h5>
+                <p class="text-indigo-700 text-sm">
+                  Mantener <strong>certificados de formación y demás evidencias en sitio</strong> para inspección de autoridades.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Flujo de Trabajo Diario -->
+      <section class="mb-16" data-aos="fade-up">
+        <div class="bg-gradient-to-br from-[#FF0818] to-[#7C0000] rounded-2xl shadow-2xl overflow-hidden text-white">
+          <div class="p-8">
+            <div class="text-center mb-8">
+              <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                ⚙️ Cómo se Aplica en el Día a Día
+              </h2>
+              <p class="text-xl opacity-90">
+                Flujo de trabajo resumido para operación diaria
+              </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div class="bg-white bg-opacity-10 rounded-lg p-6 backdrop-blur-sm">
+                <h3 class="font-bold text-lg mb-3 flex items-center">
+                  <span class="bg-white bg-opacity-20 rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3">1</span>
+                  Antes del Recibo
+                </h3>
+                <ul class="text-sm space-y-1 opacity-90">
+                  <li>• Señalización/aislamiento</li>
+                  <li>• Revisión carrotanque</li>
+                  <li>• Prueba agua/apariencia</li>
+                  <li>• Arrastre etanol (si aplica)</li>
+                  <li class="text-yellow-300"><strong>Si no cumple → NO se descarga</strong></li>
+                </ul>
+              </div>
+
+              <div class="bg-white bg-opacity-10 rounded-lg p-6 backdrop-blur-sm">
+                <h3 class="font-bold text-lg mb-3 flex items-center">
+                  <span class="bg-white bg-opacity-20 rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3">2</span>
+                  Descargue y Almacenamiento
+                </h3>
+                <ul class="text-sm space-y-1 opacity-90">
+                  <li>• Control hermeticidad</li>
+                  <li>• Cajas contenedoras</li>
+                  <li>• Registros diarios</li>
+                  <li class="text-yellow-300"><strong>Acción inmediata ante anomalías</strong></li>
+                </ul>
+              </div>
+
+              <div class="bg-white bg-opacity-10 rounded-lg p-6 backdrop-blur-sm">
+                <h3 class="font-bold text-lg mb-3 flex items-center">
+                  <span class="bg-white bg-opacity-20 rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3">3</span>
+                  Suministro
+                </h3>
+                <ul class="text-sm space-y-1 opacity-90">
+                  <li>• Verificación diaria calidad</li>
+                  <li>• Dispensadores</li>
+                  <li>• Mantenimiento equipos</li>
+                </ul>
+              </div>
+
+              <div class="bg-white bg-opacity-10 rounded-lg p-6 backdrop-blur-sm">
+                <h3 class="font-bold text-lg mb-3 flex items-center">
+                  <span class="bg-white bg-opacity-20 rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3">4</span>
+                  Trabajos Especiales
+                </h3>
+                <ul class="text-sm space-y-1 opacity-90">
+                  <li>• ATS + Permiso + Checklists</li>
+                  <li>• Roles definidos</li>
+                  <li class="text-yellow-300"><strong>Suspensión si hay incumplimientos</strong></li>
+                </ul>
+              </div>
+
+              <div class="bg-white bg-opacity-10 rounded-lg p-6 backdrop-blur-sm">
+                <h3 class="font-bold text-lg mb-3 flex items-center">
+                  <span class="bg-white bg-opacity-20 rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3">5</span>
+                  Gestión Ambiental
+                </h3>
+                <ul class="text-sm space-y-1 opacity-90">
+                  <li>• Clasificación/rotulación residuos</li>
+                  <li>• Registro IDEAM</li>
+                  <li>• Certificados disposición final</li>
+                  <li>• Plan contingencia vigente</li>
+                </ul>
+              </div>
+
+              <div class="bg-white bg-opacity-10 rounded-lg p-6 backdrop-blur-sm">
+                <h3 class="font-bold text-lg mb-3 flex items-center">
+                  <span class="bg-white bg-opacity-20 rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3">6</span>
+                  Personal
+                </h3>
+                <ul class="text-sm space-y-1 opacity-90">
+                  <li>• Inducción obligatoria</li>
+                  <li>• Capacitación periódica</li>
+                  <li>• Evidencias disponibles</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Complemento de las Dos Partes -->
+      <section class="mb-16" data-aos="fade-up">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+          <div class="bg-gradient-to-r from-[#1A3A42] to-[#B50000] p-6">
+            <div class="flex items-center text-white">
+              <svg class="w-8 h-8 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+              </svg>
+              <h2 class="text-2xl font-bold">Cómo se Complementan las Dos Partes del Manual</h2>
+            </div>
+          </div>
+          <div class="p-8">
+            <div class="grid md:grid-cols-2 gap-8">
+              <div class="border-2 border-blue-200 rounded-lg p-6">
+                <h3 class="text-xl font-semibold text-blue-800 mb-4 flex items-center">
+                  <div class="bg-blue-100 rounded-full p-2 mr-3">
+                    <span class="text-blue-600 font-bold">1</span>
+                  </div>
+                  Parte 1 - Base Operativa
+                </h3>
+                <ul class="space-y-2 text-gray-700">
+                  <li class="flex items-start">
+                    <span class="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    <span><strong>Mapa de procesos EDS</strong></span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    <span><strong>Riesgos por proceso</strong></span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    <span><strong>Controles de infraestructura/equipos</strong></span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    <span><strong>Marco de ATS + permisos</strong></span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="border-2 border-green-200 rounded-lg p-6">
+                <h3 class="text-xl font-semibold text-green-800 mb-4 flex items-center">
+                  <div class="bg-green-100 rounded-full p-2 mr-3">
+                    <span class="text-green-600 font-bold">2</span>
+                  </div>
+                  Parte 2 - Profundización
+                </h3>
+                <ul class="space-y-2 text-gray-700">
+                  <li class="flex items-start">
+                    <span class="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    <span><strong>Programas específicos</strong> (ambiental, SPA, higiene postural, bioseguridad)</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    <span><strong>Protocolos detallados de calidad</strong> (apariencia, arrastre de etanol)</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    <span><strong>Tablas, listas de chequeo y registros obligatorios</strong></span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Call to Action -->
+      <section class="text-center" data-aos="fade-up">
+        <div class="bg-gradient-to-r from-[#FDB913] to-[#FF0818] rounded-2xl shadow-2xl p-8 text-white">
+          <h2 class="text-3xl font-bold mb-4">
+            ¿Necesitas más información sobre EDS Confiable?
+          </h2>
+          <p class="text-xl mb-6 opacity-90">
+            Contacta a nuestro equipo de formación para capacitación especializada
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a 
+              href="#" 
+              class="inline-flex items-center bg-white text-terpel-primary px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+            >
+              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+              Contactar Equipo
+            </a>
+            <a 
+              href="/programacion_escuelascol/" 
+              class="inline-flex items-center border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-terpel-primary transition-colors"
+            >
+              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              </svg>
+              Ver Cronograma
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+.container-custom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-custom {
+    padding: 0 2rem;
+  }
+}
+</style>
