@@ -3,26 +3,13 @@ export interface NavItem {
   label: string;
   href: string;
   dropdown?: NavItem[];
+  external?: boolean;
 }
 
 const navItems: NavItem[] = [
   {
-    label: "Cronograma Escuelas Colombia",
-    href: "/programacion_escuelascol/",
-    dropdown: [
-      { label: "Antioquia", href: "/antioquia_prog/" },
-      { label: "Bucaramanga", href: "#" },
-      { label: "Centro", href: "#" },
-      { label: "Norte", href: "#" },
-      { label: "Occidente", href: "#" },
-      { label: "Sabana", href: "#" },
-      { label: "Sur", href: "#" },
-      { label: "Ver todas las regionales", href: "/programacion_escuelascol/" }
-    ]
-  },
-  {
-    label: "Cronograma EDS Confiable", 
-    href: "#"
+    label: "Cronograma Escuelas Colombia y EDS Confiable",
+    href: "/programacion_escuelascol/"
   },
   {
     label: "Directorio de Instructores",
@@ -99,8 +86,18 @@ const navItems: NavItem[] = [
                 </div>
               </div>
             ) : (
-              <a href={item.href} class="nav-link flex flex-col items-center text-center text-sm leading-tight py-2">
+              <a 
+                href={item.href} 
+                class="nav-link flex flex-col items-center text-center text-sm leading-tight py-2"
+                target={item.external ? "_blank" : "_self"}
+                rel={item.external ? "noopener noreferrer" : undefined}
+              >
                 <span set:html={item.label.replace(' ', '<br />')} />
+                {item.external && (
+                  <svg class="w-3 h-3 ml-1 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                  </svg>
+                )}
               </a>
             )}
           </li>
@@ -139,8 +136,15 @@ const navItems: NavItem[] = [
               <a 
                 href={item.href} 
                 class="block px-4 py-2 text-terpel-light hover:text-terpel-primary transition-colors duration-200"
+                target={item.external ? "_blank" : "_self"}
+                rel={item.external ? "noopener noreferrer" : undefined}
               >
                 {item.label}
+                {item.external && (
+                  <svg class="w-3 h-3 ml-1 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                  </svg>
+                )}
               </a>
             )}
           </li>
