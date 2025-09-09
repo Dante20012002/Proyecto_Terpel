@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fuentes Terpel */
+@font-face {
+    font-family: 'fuenteTerpel';
+    src: url('../styles/fonts/Terpel-Sans-ExtraBold-Condensed.woff2') format('woff2');
+    font-display: swap;
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: 'fuenteTerpelLibiana';
+    src: url('../styles/fonts/Terpel-Sans-Medium-Condensed.woff2') format('woff2');
+    font-display: swap;
+    font-weight: 500;
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply font-terpel text-terpel-light bg-white;
+  }
+}
+
+@layer components {
+  /* Botones principales */
+  .btn-primary {
+    @apply bg-terpel-primary text-terpel-light px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-red-700 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-terpel-primary focus:ring-opacity-50;
+  }
+  
+  .btn-secondary {
+    @apply bg-terpel-secondary text-terpel-light px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-teal-800 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-terpel-secondary focus:ring-opacity-50;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-terpel-primary text-terpel-primary px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-terpel-primary hover:text-terpel-light focus:outline-none focus:ring-2 focus:ring-terpel-primary focus:ring-opacity-50;
+  }
+
+  /* Tarjetas */
+  .card {
+    @apply bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+  
+  .card-body {
+    @apply p-6;
+  }
+  
+  .card-title {
+    @apply text-xl font-bold text-terpel-secondary mb-3;
+  }
+  
+  .card-text {
+    @apply text-gray-600 leading-relaxed;
+  }
+
+  /* Navegación */
+  .nav-link {
+    @apply font-terpel-light text-terpel-light relative transition-colors duration-300 hover:text-terpel-primary;
+  }
+  
+  .nav-link::after {
+    content: '';
+    @apply absolute left-0 bottom-0 w-full h-0.5 bg-terpel-primary transform scale-x-0 origin-bottom-right transition-transform duration-300;
+  }
+  
+  .nav-link:hover::after {
+    @apply scale-x-100 origin-bottom-left;
+  }
+
+  /* Utilidades personalizadas */
+  .text-primary {
+    @apply text-terpel-primary;
+  }
+  
+  .bg-primary {
+    @apply bg-terpel-primary;
+  }
+  
+  .bg-secondary {
+    @apply bg-terpel-secondary;
+  }
+}
+
+@layer utilities {
+  /* Animaciones */
+  .animate-reveal {
+    @apply opacity-0 transform translate-y-8 scale-95 transition-all duration-700 ease-out;
+  }
+  
+  .animate-reveal.in-view {
+    @apply opacity-100 translate-y-0 scale-100;
+  }
+  
+  /* Contenedores responsive */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}

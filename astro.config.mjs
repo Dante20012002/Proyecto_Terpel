@@ -1,7 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-
 import node from '@astrojs/node';
+import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,10 +10,9 @@ export default defineConfig({
   }),
   site: "https://github.com/Dante20012002/Proyecto_Terpel",
   // base: "Proyecto_Terpel",
-  // vite: {
-  //   server: {
-  //     allowedHosts: ['https://dante20012002.github.io/Proyecto_Terpel/'], // permisos de dominio
-  //   },
-    
-  // },
+  integrations: [
+    tailwind({
+      applyBaseStyles: false, // Mantenemos control sobre los estilos base
+    })
+  ],
 });

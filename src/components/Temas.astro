@@ -1,46 +1,87 @@
-<section slot="cartas">
-  <div class="cont_banner_sec_3 justify-content-center">
-    <div class="row text-center" id="seccion_cronogramas">
-      <div class="col-md-12">
-        <hr />
-        <h2>¡¡CON LA MEJOR ENERGÍA!!</h2>
-        <p>Obtén información sobre los siguientes temas</p>
-        <hr />
-      </div>
+<section class="py-16 bg-gradient-to-br from-gray-50 to-white">
+  <div class="container-custom">
+    <div class="text-center mb-12" id="seccion_cronogramas">
+      <div class="w-24 h-1 bg-terpel-primary mx-auto mb-6"></div>
+      <h2 class="text-4xl md:text-5xl font-bold text-terpel-secondary mb-4">
+        ¡¡CON LA MEJOR ENERGÍA!!
+      </h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Obtén información sobre los siguientes temas
+      </p>
+      <div class="w-24 h-1 bg-terpel-primary mx-auto mt-6"></div>
     </div>
-    <div class="row justify-content-around text-center">
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
       <!-- Tarjeta 1 -->
-      <div class="tarjeta col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-        <div class="card h-100">
-          <img src="../../media/img/EDS Calle 28_174.jpg" class="card-img-top" alt="Cronograma Escuelas Colombia" style="height: 10rem;">
-          <div class="card-body">
+      <div class="animate-reveal" data-aos="fade-up" data-aos-delay="100">
+        <div class="card group">
+          <div class="relative overflow-hidden">
+            <img 
+              src="/media/img/EDS Calle 28_174.jpg" 
+              class="w-full h-40 object-cover transition-transform duration-300 group-hover:scale-110" 
+              alt="Cronograma Escuelas Colombia"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <div class="card-body flex flex-col h-full">
             <h5 class="card-title">Cronograma Escuelas Colombia</h5>
-            <p>Enterate de la programacion semanal de nuestras formaciones</p>
-            <a href="/programacion_escuelascol/" class="btn">Haz clic aquí</a>
+            <p class="card-text flex-grow mb-6">
+              Entérate de la programación semanal de nuestras formaciones
+            </p>
+            <a href="/programacion_escuelascol/" class="btn-primary text-center">
+              Ver Cronograma
+            </a>
           </div>
         </div>
       </div>
       
       <!-- Tarjeta 2 -->
-      <div class="tarjeta col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-        <div class="card h-100">
-          <img src="../../media/img/EDS Confiable.png" class="card-img-top" alt="Cronograma Escuelas Colombia" style="height: 10rem;">
-          <div class="card-body">
+      <div class="animate-reveal" data-aos="fade-up" data-aos-delay="200">
+        <div class="card group">
+          <div class="relative overflow-hidden">
+            <img 
+              src="/media/img/EDS Confiable.png" 
+              class="w-full h-40 object-cover transition-transform duration-300 group-hover:scale-110" 
+              alt="Cronograma EDS Confiable"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <div class="card-body flex flex-col h-full">
             <h5 class="card-title">Cronograma EDS Confiable</h5>
-            <p>Enterate de la programacion semanal de nuestras formaciones</p>
-            <a href="#" class="btn">Haz clic aquí</a>
+            <p class="card-text flex-grow mb-6">
+              Entérate de la programación semanal de nuestras formaciones
+            </p>
+            <a href="#" class="btn-primary text-center">
+              Ver Cronograma
+            </a>
           </div>
         </div>
       </div>
 
       <!-- Tarjeta 3 -->
-      <div class="tarjeta col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-        <div class="card h-100">
-          <img src="../../media/img/EDS Calle 28_174.jpg" class="card-img-top" alt="Cronograma Escuelas Colombia" style="height: 10rem;">
-          <div class="card-body">
-            <h5 class="card-title">Certificados de formación</h5>
-            <p>Busca tu certificado de formación de Escuelas Colombia</p>
-            <a href="https://grupospira-my.sharepoint.com/:f:/g/personal/diplomas_terpel_spira_co/EqT6XjS8UXFOnbz0joUFYYsBsHyj_77SHZ-CU92pmIaQ-g?e=bQ5r5N" class="btn" target="_blank" rel="noopener noreferrer">Haz clic aquí</a>
+      <div class="animate-reveal md:col-span-2 lg:col-span-1" data-aos="fade-up" data-aos-delay="300">
+        <div class="card group">
+          <div class="relative overflow-hidden">
+            <img 
+              src="/media/img/EDS Calle 28_174.jpg" 
+              class="w-full h-40 object-cover transition-transform duration-300 group-hover:scale-110" 
+              alt="Certificados de formación"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <div class="card-body flex flex-col h-full">
+            <h5 class="card-title">Certificados de Formación</h5>
+            <p class="card-text flex-grow mb-6">
+              Busca tu certificado de formación de Escuelas Colombia
+            </p>
+            <a 
+              href="https://grupospira-my.sharepoint.com/:f:/g/personal/diplomas_terpel_spira_co/EqT6XjS8UXFOnbz0joUFYYsBsHyj_77SHZ-CU92pmIaQ-g?e=bQ5r5N" 
+              class="btn-primary text-center" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              Ver Certificados
+            </a>
           </div>
         </div>
       </div>

@@ -1,6 +1,59 @@
 ---
-import Boletin from '../layouts/Boletin.astro';
-import '../css/style.css'
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import ProgressBar from '../components/Progress_bar.astro';
+import Pdf from '../components/Pdf.astro';
+import Footer from '../components/Footer.astro';
+import '../css/style.css';
 ---
-<Boletin>
-<Boletin />
+
+<Layout title="Boletín Que No le Pase - Escuelas 360" description="Boletines informativos EDS Confiable - Que No le Pase">
+  <Navigation />
+  <ProgressBar />
+  
+  <main class="pt-24 pb-16 min-h-screen bg-gradient-to-br from-gray-50 to-white">
+    <div class="container-custom">
+      <div class="text-center mb-12">
+        <h1 class="text-5xl md:text-6xl font-bold text-terpel-primary mb-6">
+          Boletín "Que No le Pase"
+        </h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+          Mantente informado con nuestros boletines EDS Confiable. 
+          Información actualizada sobre mejores prácticas, seguridad y procedimientos operativos.
+        </p>
+        <div class="w-24 h-1 bg-terpel-primary mx-auto mb-8"></div>
+        
+        <!-- Estadísticas -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
+          <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+            <div class="text-3xl font-bold text-terpel-primary mb-2">5</div>
+            <div class="text-gray-600">Boletines Disponibles</div>
+          </div>
+          <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+            <div class="text-3xl font-bold text-terpel-secondary mb-2">2025</div>
+            <div class="text-gray-600">Año Actual</div>
+          </div>
+          <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+            <div class="text-3xl font-bold text-terpel-primary mb-2">PDF</div>
+            <div class="text-gray-600">Formato Digital</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-lg shadow-xl p-6">
+        <div class="mb-6 text-center">
+          <h2 class="text-2xl font-semibold text-terpel-secondary mb-2">
+            Boletines EDS Confiable
+          </h2>
+          <p class="text-gray-600">
+            Haz clic en cualquier boletín para visualizarlo o descargarlo
+          </p>
+        </div>
+        
+        <Pdf />
+      </div>
+    </div>
+  </main>
+  
+  <Footer />
+</Layout>

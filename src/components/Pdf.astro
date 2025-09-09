@@ -20,28 +20,97 @@ const archivosPDF = [
 
 ---
 
-<style>
-  .pdf-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(45%, 1fr)); /* Dos columnas */
-    gap: 20px; /* Espacio entre PDFs */
-    padding: 20px;
-  }
+<!-- Estilos migrados a Tailwind CSS -->
 
-  iframe {
-    width: 100%;
-    height: 500px; /* Ajusta la altura según necesites */
-    border: 1px solid #ccc;
-  }
-
-  .title_pdf {
-    position: relative;
-  }
-</style>
-
-<div class="pdf-container">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 p-6">
   {archivosPDF.map((archivo) => (
-    // <h2 class="title_pdf text-center">{archivo}</h2>
-    <iframe src={`/media/docs/Boletines/${archivo}`} loading="lazy"></iframe>
+    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2 group">
+      <div class="p-6 border-b border-gray-200">
+        <h3 class="text-xl font-bold text-terpel-secondary text-center">
+          {archivo.replace('.pdf', '').replace('Boletín EDS Confiable N ', 'Boletín N°')}
+        </h3>
+      </div>
+      
+      <div class="relative bg-gray-50">
+        <iframe 
+          src={`/media/docs/Boletines/${archivo}`} 
+          loading="lazy"
+          title={`Boletín ${archivo}`}
+          class="w-full h-96 border-0 transition-all duration-300 group-hover:scale-105"
+        ></iframe>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+      </div>
+      
+      <div class="p-6 bg-white">
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+          <a 
+            href={`/media/docs/Boletines/${archivo}`} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="flex items-center justify-center px-4 py-2 border-2 border-terpel-primary text-terpel-primary rounded-lg font-medium transition-all duration-300 hover:bg-terpel-primary hover:text-white focus:outline-none focus:ring-2 focus:ring-terpel-primary focus:ring-opacity-50"
+          >
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+            </svg>
+            Abrir en nueva ventana
+          </a>
+          <a 
+            href={`/media/docs/Boletines/${archivo}`} 
+            download={archivo}
+            class="flex items-center justify-center px-4 py-2 bg-terpel-primary text-white rounded-lg font-medium transition-all duration-300 hover:bg-red-700 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-terpel-primary focus:ring-opacity-50"
+          >
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+            Descargar PDF
+          </a>
+        </div>
+      </div>
+    </div>
   ))}
 </div>
+
+<script is:inline>
+  // Script para manejar la funcionalidad de PDFs
+  document.addEventListener('DOMContentLoaded', function() {
+    // Mejorar la carga de PDFs con loading lazy
+    const iframes = document.querySelectorAll('iframe[src*=".pdf"]');
+    
+    iframes.forEach(function(iframe, index) {
+      // Agregar loading="lazy" si no está presente
+      if (!iframe.hasAttribute('loading')) {
+        iframe.setAttribute('loading', 'lazy');
+      }
+      
+      // Agregar evento de carga para mostrar indicador
+      iframe.addEventListener('load', function() {
+        console.log('PDF ' + (index + 1) + ' cargado correctamente');
+      });
+      
+      // Manejar errores de carga
+      iframe.addEventListener('error', function() {
+        console.error('Error al cargar PDF ' + (index + 1));
+        // Mostrar mensaje de error al usuario
+        const errorMessage = document.createElement('div');
+        errorMessage.className = 'alert alert-warning';
+        errorMessage.innerHTML = 
+          '<h6>Error al cargar el documento</h6>' +
+          '<p>No se pudo cargar el PDF. <a href="' + iframe.src + '" target="_blank">Abrir en nueva ventana</a></p>';
+        
+        if (iframe.parentNode) {
+          iframe.parentNode.insertBefore(errorMessage, iframe.nextSibling);
+          iframe.style.display = 'none';
+        }
+      });
+    });
+    
+    // Funcionalidad para botones de descarga de PDFs
+    const downloadButtons = document.querySelectorAll('a[download]');
+    downloadButtons.forEach(function(button) {
+      button.addEventListener('click', function(e) {
+        // Agregar analytics o tracking si es necesario
+        console.log('Descargando:', button.getAttribute('href'));
+      });
+    });
+  });
+</script>

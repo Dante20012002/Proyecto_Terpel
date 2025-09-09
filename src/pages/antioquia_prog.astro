@@ -1,10 +1,86 @@
 ---
-import CronogramaEscuelas from "../layouts/CronogramaEscuelas.astro";
-import '../css/style.css'
-import '../css/cronograma.css'
-
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import ProgressBar from '../components/Progress_bar.astro';
+import Footer from '../components/Footer.astro';
+import '../css/style.css';
+import '../css/cronograma.css';
 ---
 
-<CronogramaEscuelas>
+<Layout title="Cronograma Antioquia - Escuelas 360" description="Cronograma de formación para la regional Antioquia de Terpel Escuelas">
+  <Navigation />
+  <ProgressBar />
   
-</CronogramaEscuelas>
+  <main class="pt-24 pb-16 min-h-screen bg-gradient-to-br from-terpel-light to-gray-100">
+    <div class="container-custom">
+      <div class="text-center mb-8">
+        <img 
+          class="w-auto h-32 md:h-40 mx-auto mb-6" 
+          src="/media/img/Logo Terpel Escuelas.png" 
+          alt="Escuelas Terpel"
+        >
+        <h1 class="text-4xl md:text-5xl font-bold text-terpel-secondary mb-4">
+          Escuelas Terpel - Regional Antioquia
+        </h1>
+        <h2 class="text-2xl text-terpel-primary mb-4">
+          Cronograma Enero 2025 - Segunda Semana
+        </h2>
+        <p class="text-lg text-gray-600 mb-6">
+          Actualizado (10 de enero de 2025)
+        </p>
+        <a 
+          download="Cronograma Semanal Antioquia" 
+          href="/media/docs/CronogramaV2.pdf"
+          class="inline-flex items-center px-6 py-3 border-2 border-terpel-secondary text-terpel-secondary rounded-lg font-semibold transition-all duration-300 hover:bg-terpel-secondary hover:text-white focus:outline-none focus:ring-2 focus:ring-terpel-secondary focus:ring-opacity-50 mb-8"
+        >
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+          </svg>
+          Descarga tu cronograma
+        </a>
+      </div>
+      
+      <div class="bg-white rounded-lg shadow-xl overflow-hidden">
+        <div class="p-4 bg-terpel-secondary">
+          <h3 class="text-xl font-semibold text-white text-center">
+            Cronograma Semanal - Regional Antioquia
+          </h3>
+        </div>
+        <div class="p-4 bg-gray-50">
+          <div class="overflow-x-auto">
+            <img 
+              class="w-full h-auto max-w-none border border-gray-200 rounded-lg shadow-sm" 
+              src="/media/img/cronograma semanal V2.png" 
+              alt="Cronograma Escuelas Antioquia"
+              loading="lazy"
+              style="min-width: 800px;"
+            >
+          </div>
+        </div>
+        
+        <!-- Información adicional -->
+        <div class="p-6 bg-white border-t border-gray-200">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-blue-50 p-4 rounded-lg">
+              <h4 class="font-semibold text-blue-800 mb-2">Información Importante</h4>
+              <ul class="text-blue-700 text-sm space-y-1">
+                <li>• Verifica los horarios antes de cada sesión</li>
+                <li>• Mantén actualizada tu información de contacto</li>
+                <li>• Consulta cambios de última hora</li>
+              </ul>
+            </div>
+            <div class="bg-green-50 p-4 rounded-lg">
+              <h4 class="font-semibold text-green-800 mb-2">Contacto Regional</h4>
+              <p class="text-green-700 text-sm">
+                Para consultas específicas de la regional Antioquia, 
+                contacta a tu coordinador local de formación.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <Footer />
+</Layout>

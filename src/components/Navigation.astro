@@ -1,55 +1,176 @@
 ---
+export interface NavItem {
+  label: string;
+  href: string;
+  dropdown?: NavItem[];
+}
 
+const navItems: NavItem[] = [
+  {
+    label: "Cronograma Escuelas Colombia",
+    href: "/programacion_escuelascol/",
+    dropdown: [
+      { label: "Antioquia", href: "/antioquia_prog/" },
+      { label: "Bucaramanga", href: "#" },
+      { label: "Centro", href: "#" },
+      { label: "Norte", href: "#" },
+      { label: "Occidente", href: "#" },
+      { label: "Sabana", href: "#" },
+      { label: "Sur", href: "#" },
+      { label: "Ver todas las regionales", href: "/programacion_escuelascol/" }
+    ]
+  },
+  {
+    label: "Cronograma EDS Confiable", 
+    href: "#"
+  },
+  {
+    label: "Directorio de Instructores",
+    href: "#"
+  },
+  {
+    label: "Acerca de Escuelas Colombia",
+    href: "/acerca_escuelas/"
+  },
+  {
+    label: "Acerca de Red Virtual",
+    href: "/acerca_red_virtual/"
+  },
+  {
+    label: "Acerca de EDS Confiable",
+    href: "#"
+  },
+  {
+    label: "Boletín Que No le Pase",
+    href: "/boletin_qnlp/"
+  }
+];
 ---
-<nav class="navbar fixed-top navbar-expand-lg shadow p-3 mb-2" slot="nav">
-  <div class="container-fluid">
-      <a class="navbar-brand fs-3" href="/#">
-          <img src="../../media/img/Terpel_simbolo.png" class="img-fluid d-inline-block" alt="Escuelas 360" width="60" height="50">
-          ESCUELAS 360
+
+<nav class="fixed top-0 w-full bg-terpel-secondary shadow-lg z-50">
+  <div class="container-custom">
+    <div class="flex items-center justify-between py-4">
+      <a href="/" class="flex items-center space-x-3 text-3xl font-bold text-terpel-light hover:text-terpel-accent transition-colors duration-300">
+        <img 
+          src="/media/img/Terpel_simbolo.png" 
+          class="w-12 h-10 object-contain" 
+          alt="Escuelas 360"
+        >
+        <span>ESCUELAS 360</span>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-theme="dark" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-      <div class="collapse navbar-collapse w-75 text-center align-text-bottom" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item dropdown">
-                  <a class="nav-link fs-6" href="regionales_cronograma.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Cronograma Escuelas <br> Colombia
-                  </a>
-                  <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="/antioquia_prog/">Antioquia</a></li>
-                      <li><a class="dropdown-item" href="#">Bucaramanga</a></li>
-                      <li><a class="dropdown-item" href="#">Centro</a></li>
-                      <li><a class="dropdown-item" href="#">Norte</a></li>
-                      <li><a class="dropdown-item" href="#">Occidente</a></li>
-                      <li><a class="dropdown-item" href="#">Sabana</a></li>
-                      <li><a class="dropdown-item" href="#">Sur</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="/programacion_escuelascol/">Ver todas las regionales</a></li>
-                  </ul>
-                <li class="nav-item">
-                    <a class="nav-link fs-6" href="programacion_eds_conf.html">Cronograma EDS <br> Confiable</a>
-                </li>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link fs-6" href="instructores.html">Directorio de <br> Instructores</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link fs-6" href="escuelas_metodology.html">Acerca de <br> Escuelas Colombia</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link fs-6" href="boletin.html">Acerca de<br>Red Virtual</a>
-            </li>
-              <li class="nav-item">
-                  <a class="nav-link fs-6" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Acerca de <br> EDS Confiable
-                  </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link fs-6" href="/boletin_qnlp/">Boletin<br>Que No le Pase</a>
-            </li>
-            </ul>
-        </div>
+      
+      <!-- Mobile menu button -->
+      <button 
+        id="mobile-menu-toggle"
+        class="lg:hidden flex items-center justify-center w-10 h-10 rounded-md text-terpel-light hover:text-terpel-primary transition-colors duration-300"
+        aria-label="Toggle navigation"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+      
+      <!-- Desktop navigation -->
+      <ul class="hidden lg:flex items-center space-x-8">
+        {navItems.map((item) => (
+          <li class={item.dropdown ? 'relative group' : ''}>
+            {item.dropdown ? (
+              <div class="relative">
+                <a 
+                  href={item.href}
+                  class="nav-link flex flex-col items-center text-center text-sm leading-tight py-2"
+                >
+                  <span set:html={item.label.replace(' ', '<br />')} />
+                </a>
+                <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-56 bg-terpel-secondary border border-terpel-primary rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                  {item.dropdown.map((subItem) => (
+                    <Fragment>
+                      {subItem.label === "Ver todas las regionales" && (
+                        <hr class="border-terpel-primary/20 my-1" />
+                      )}
+                      <a 
+                        href={subItem.href} 
+                        class="block px-4 py-2 text-terpel-light hover:bg-terpel-primary hover:text-terpel-light transition-colors duration-200 first:rounded-t-lg last:rounded-b-lg"
+                      >
+                        {subItem.label}
+                      </a>
+                    </Fragment>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <a href={item.href} class="nav-link flex flex-col items-center text-center text-sm leading-tight py-2">
+                <span set:html={item.label.replace(' ', '<br />')} />
+              </a>
+            )}
+          </li>
+        ))}
+      </ul>
     </div>
+    
+    <!-- Mobile navigation -->
+    <div id="mobile-menu" class="lg:hidden hidden border-t border-terpel-primary/20 pt-4 pb-4">
+      <ul class="space-y-2">
+        {navItems.map((item) => (
+          <li>
+            {item.dropdown ? (
+              <div>
+                <button 
+                  class="w-full text-left px-4 py-2 text-terpel-light hover:text-terpel-primary transition-colors duration-200 flex items-center justify-between"
+                  onclick="toggleMobileDropdown(this)"
+                >
+                  <span>{item.label}</span>
+                  <svg class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </button>
+                <div class="hidden pl-6 space-y-1">
+                  {item.dropdown.map((subItem) => (
+                    <a 
+                      href={subItem.href} 
+                      class="block px-4 py-2 text-sm text-terpel-light hover:text-terpel-primary transition-colors duration-200"
+                    >
+                      {subItem.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <a 
+                href={item.href} 
+                class="block px-4 py-2 text-terpel-light hover:text-terpel-primary transition-colors duration-200"
+              >
+                {item.label}
+              </a>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
 </nav>
-<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> -->
+
+<script is:inline>
+  // Funcionalidad para menú móvil
+  document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (mobileMenuToggle && mobileMenu) {
+      mobileMenuToggle.addEventListener('click', function() {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+  });
+  
+  // Función para toggle de dropdown en móvil
+  function toggleMobileDropdown(button) {
+    const dropdown = button.nextElementSibling;
+    const icon = button.querySelector('svg');
+    
+    if (dropdown) {
+      dropdown.classList.toggle('hidden');
+      icon.style.transform = dropdown.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+    }
+  }
+</script>

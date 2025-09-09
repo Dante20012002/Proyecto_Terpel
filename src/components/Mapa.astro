@@ -2,9 +2,55 @@
 
 ---
 
-<div class="regionales">
-  <img class="img-fluid img-thumbnail rounded float-start border border-danger" id="mapa_completo" src="../media/img/Regionales/mapa_completo.png" usemap="#image-map">
-  <img class="persona rounded mx-auto d-block float-end" src="../media/img/Asset 2@2x-8.png" alt="persona">
+<div class="regionales relative bg-gradient-to-br from-gray-50 to-white p-8 rounded-lg shadow-xl">
+  <div class="flex flex-col lg:flex-row items-center justify-center gap-8">
+    <!-- Mapa interactivo -->
+    <div class="relative flex-1 max-w-2xl" data-aos="fade-right" data-aos-delay="100">
+      <img 
+        class="rounded-lg border-4 border-terpel-primary shadow-lg transition-transform duration-300" 
+        id="mapa_completo" 
+        src="/media/img/Regionales/mapa_completo.png" 
+        usemap="#image-map"
+        alt="Mapa de Regionales Colombia"
+        style="width: auto; height: auto; max-width: 100%;"
+      >
+      
+      <!-- Indicador de interactividad -->
+      <div class="absolute top-4 right-4 bg-terpel-primary text-white px-3 py-2 rounded-full text-sm font-semibold shadow-lg animate-pulse">
+        <a href="https://proyecto-cronograma.vercel.app/" target="_blank">
+        <svg class="w-4 h-4 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.122 2.122"></path>
+        </svg>
+        Haz clic
+        </a>
+      </div>
+    </div>
+    
+    <!-- Imagen de persona -->
+    <div class="flex-shrink-0" data-aos="fade-left" data-aos-delay="300">
+      <img 
+        class="w-48 h-auto" 
+        src="/media/img/Asset 2@2x-8.png" 
+        alt="Persona representativa"
+      >
+    </div>
+  </div>
+  
+  <!-- Instrucciones -->
+  <div class="mt-8 text-center" data-aos="fade-up" data-aos-delay="500">
+    <p class="text-lg text-gray-600 mb-4">
+      Haz clic en cualquier región del mapa para ver su cronograma de formación
+    </p>
+    <div class="flex flex-wrap justify-center gap-2">
+      <span class="bg-terpel-primary text-white px-3 py-1 rounded-full text-sm">Antioquia</span>
+      <span class="bg-terpel-secondary text-white px-3 py-1 rounded-full text-sm">Bucaramanga</span>
+      <span class="bg-terpel-primary text-white px-3 py-1 rounded-full text-sm">Centro</span>
+      <span class="bg-terpel-secondary text-white px-3 py-1 rounded-full text-sm">Norte</span>
+      <span class="bg-terpel-primary text-white px-3 py-1 rounded-full text-sm">Occidente</span>
+      <span class="bg-terpel-secondary text-white px-3 py-1 rounded-full text-sm">Sabana</span>
+      <span class="bg-terpel-primary text-white px-3 py-1 rounded-full text-sm">Sur</span>
+    </div>
+  </div>
 </div>
 
 <map name="image-map">
@@ -19,3 +65,112 @@
 </map>
 
 <div id="tooltip" class="tooltip" data-tooltip=""></div>
+
+<script is:inline>
+// Script para tooltips del mapa
+document.addEventListener('DOMContentLoaded', function () {
+  const mapaImg = document.getElementById('mapa_completo');
+  const tooltip = document.getElementById('tooltip');
+  
+  if (!tooltip || !mapaImg) {
+    return;
+  }
+
+  function initializeTooltips() {
+    const areas = document.querySelectorAll('area[usemap="#image-map"], area');
+
+    areas.forEach((area) => {
+      area.addEventListener('mouseenter', function (e) {
+        const originalTitle = area.getAttribute('title');
+        if (originalTitle) {
+          area.dataset.originalTitle = originalTitle;
+          area.removeAttribute('title');
+          tooltip.textContent = originalTitle;
+          tooltip.classList.add('active');
+        }
+      });
+
+      area.addEventListener('mouseleave', function () {
+        tooltip.classList.remove('active');
+        if (area.dataset.originalTitle) {
+          area.setAttribute('title', area.dataset.originalTitle);
+          delete area.dataset.originalTitle;
+        }
+      });
+
+      area.addEventListener('mousemove', function (e) {
+        if (tooltip.classList.contains('active')) {
+          // Posicionar el tooltip justo encima del cursor
+          const x = e.clientX - 50; // Pequeño offset horizontal
+          const y = e.clientY - 40; // Posicionar encima del cursor
+          
+          tooltip.style.left = `${x}px`;
+          tooltip.style.top = `${y}px`;
+        }
+      });
+    });
+  }
+
+  if (mapaImg.complete) {
+    initializeTooltips();
+  } else {
+    mapaImg.addEventListener('load', initializeTooltips);
+  }
+});
+</script>
+
+<style>
+  .tooltip {
+    position: fixed;
+    background: #1A3A42;
+    color: #F3FFFF;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: 2px solid #FF0818;
+  }
+
+  .tooltip.active {
+    opacity: 1;
+    transform: translateY(-5px);
+  }
+
+  .tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #FF0818 transparent transparent transparent;
+  }
+
+  /* Efectos hover para las áreas del mapa */
+  area:hover {
+    cursor: pointer;
+  }
+
+  /* Animación para el indicador de interactividad */
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 0.8;
+    }
+  }
+
+  .regionales .absolute.top-4.right-4 {
+    animation: pulse 2s infinite;
+  }
+</style>

@@ -1,6 +1,191 @@
 ---
-import Acercaescuelas from '../layouts/AcercaEscuelas.astro'
-import '../css/style.css'
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import ProgressBar from '../components/Progress_bar.astro';
+import Footer from '../components/Footer.astro';
+import '../css/style.css';
+
+const metodologias = [
+  {
+    title: "Escuela de Promotores",
+    description: "Programa especializado para formar promotores de ventas con las mejores prácticas comerciales y de atención al cliente.",
+    image: "/media/img/Escuela de Promotores.png",
+    features: ["Técnicas de venta", "Atención al cliente", "Productos Terpel", "Manejo de objeciones"]
+  },
+  {
+    title: "Escuela de Administradores",
+    description: "Formación integral para administradores de estaciones de servicio, enfocada en gestión operativa y liderazgo.",
+    image: "/media/img/Escuela de Administradores.png",
+    features: ["Gestión operativa", "Liderazgo de equipos", "Control de inventarios", "Indicadores de gestión"]
+  },
+  {
+    title: "EDS Confiable",
+    description: "Programa de certificación que garantiza los más altos estándares de calidad y servicio en nuestras estaciones.",
+    image: "/media/img/EDS Confiable.png",
+    features: ["Estándares de calidad", "Procesos operativos", "Seguridad industrial", "Experiencia del cliente"]
+  }
+];
 ---
 
-<Acercaescuelas><Acercaescuelas/>
+<Layout title="Acerca de Escuelas Colombia - Escuelas 360" description="Conoce las metodologías y programas de formación de Terpel Escuelas Colombia">
+  <Navigation />
+  <ProgressBar />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section pt-24 pb-16">
+      <div class="container-custom">
+        <div class="grid lg:grid-cols-2 gap-12 items-center min-h-[50vh]">
+          <div class="space-y-6" data-aos="fade-right">
+            <h1 class="text-5xl md:text-6xl font-bold text-white leading-tight">
+              Escuelas Colombia
+            </h1>
+            <p class="text-xl text-terpel-light leading-relaxed">
+              Formamos a los mejores profesionales del sector energético con programas 
+              especializados que combinan teoría y práctica para garantizar la excelencia operativa.
+            </p>
+            <a href="/programacion_escuelascol/" class="btn-primary inline-block text-lg">
+              Ver Cronogramas
+            </a>
+          </div>
+          <div class="text-center" data-aos="fade-left">
+            <img 
+              src="/media/img/Logo Terpel Escuelas.png" 
+              alt="Terpel Escuelas" 
+              class="w-full max-w-md mx-auto"
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Metodologías Section -->
+    <section class="py-16 bg-white">
+      <div class="container-custom">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl md:text-5xl font-bold text-terpel-primary mb-4">
+            Nuestras Metodologías
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Programas especializados diseñados para cada rol en nuestras estaciones
+          </p>
+        </div>
+        
+        <div class="grid lg:grid-cols-3 gap-8">
+          {metodologias.map((metodologia, index) => (
+            <div class="animate-reveal" data-aos="fade-up" data-aos-delay={index * 200}>
+              <div class="card h-full">
+                <div class="p-8 text-center">
+                  <img 
+                    src={metodologia.image} 
+                    class="w-full h-48 object-contain mx-auto mb-6" 
+                    alt={metodologia.title}
+                  >
+                </div>
+                <div class="card-body flex flex-col h-full">
+                  <h5 class="card-title text-center">{metodologia.title}</h5>
+                  <p class="card-text flex-grow mb-6 text-center">
+                    {metodologia.description}
+                  </p>
+                  
+                  <ul class="space-y-2">
+                    {metodologia.features.map((feature) => (
+                      <li class="flex items-center">
+                        <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="text-gray-700">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Beneficios Section -->
+    <section class="py-16 bg-gradient-to-br from-gray-50 to-white">
+      <div class="container-custom">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div data-aos="fade-right">
+            <h3 class="text-3xl font-bold text-terpel-primary mb-8">
+              ¿Por qué elegir Terpel Escuelas?
+            </h3>
+            <div class="grid sm:grid-cols-2 gap-6">
+              <div class="flex items-start space-x-4">
+                <div class="flex-shrink-0">
+                  <div class="w-12 h-12 bg-terpel-primary text-white rounded-full flex items-center justify-center font-bold text-lg">
+                    1
+                  </div>
+                </div>
+                <div>
+                  <h6 class="font-semibold text-gray-900 mb-1">Metodología Probada</h6>
+                  <p class="text-gray-600 text-sm">Años de experiencia formando profesionales</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start space-x-4">
+                <div class="flex-shrink-0">
+                  <div class="w-12 h-12 bg-terpel-primary text-white rounded-full flex items-center justify-center font-bold text-lg">
+                    2
+                  </div>
+                </div>
+                <div>
+                  <h6 class="font-semibold text-gray-900 mb-1">Certificación Reconocida</h6>
+                  <p class="text-gray-600 text-sm">Certificados con validez nacional</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start space-x-4">
+                <div class="flex-shrink-0">
+                  <div class="w-12 h-12 bg-terpel-primary text-white rounded-full flex items-center justify-center font-bold text-lg">
+                    3
+                  </div>
+                </div>
+                <div>
+                  <h6 class="font-semibold text-gray-900 mb-1">Instructores Expertos</h6>
+                  <p class="text-gray-600 text-sm">Profesionales con amplia experiencia</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start space-x-4">
+                <div class="flex-shrink-0">
+                  <div class="w-12 h-12 bg-terpel-primary text-white rounded-full flex items-center justify-center font-bold text-lg">
+                    4
+                  </div>
+                </div>
+                <div>
+                  <h6 class="font-semibold text-gray-900 mb-1">Flexibilidad Horaria</h6>
+                  <p class="text-gray-600 text-sm">Horarios adaptados a tu disponibilidad</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div data-aos="fade-left">
+            <div class="relative">
+              <img 
+                src="/media/img/Campo entrenamiento.png" 
+                alt="Campo de Entrenamiento" 
+                class="w-full rounded-lg shadow-xl"
+              >
+              <div class="absolute -top-4 -right-4 w-24 h-24 bg-terpel-primary/20 rounded-full blur-xl"></div>
+              <div class="absolute -bottom-4 -left-4 w-32 h-32 bg-terpel-secondary/10 rounded-full blur-xl"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  .hero-section {
+    background: linear-gradient(135deg, #1A3A42 0%, #2C5F6B 100%);
+  }
+</style>

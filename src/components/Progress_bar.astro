@@ -1,1 +1,37 @@
-<div class="progress"></div>
+---
+export interface Props {
+  color?: string;
+  height?: string;
+}
+
+const { 
+  color = "#FF0818",
+  height = "0.3em" 
+} = Astro.props;
+---
+
+<div 
+  id="progress-bar"
+  class="fixed top-0 left-0 w-0 z-[2000] transition-all duration-100"
+  style={`background-color: ${color}; height: ${height}; box-shadow: 0 0 10px ${color};`}
+></div>
+
+<script is:inline define:vars={{ color, height }}>
+  function updateProgressBar() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = Math.min((scrollTop / scrollHeight) * 100, 100);
+    
+    const progressBar = document.getElementById('progress-bar');
+    if (progressBar) {
+      progressBar.style.width = `${progress}%`;
+    }
+  }
+
+  // Actualizar en scroll y resize
+  window.addEventListener('scroll', updateProgressBar);
+  window.addEventListener('resize', updateProgressBar);
+  
+  // Inicializar
+  updateProgressBar();
+</script>

@@ -1,6 +1,84 @@
 ---
-import Regionales from '../layouts/Selec_reg.astro';
-import '../css/style.css'
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import ProgressBar from '../components/Progress_bar.astro';
+import Footer from '../components/Footer.astro';
+import Mapa from '../components/Mapa.astro';
 ---
 
-<Regionales />
+<Layout title="Programación Escuelas Colombia - Escuelas 360" description="Cronogramas de formación por regionales de Colombia">
+  <Navigation />
+  <ProgressBar />
+  
+  <main class="pt-24 pb-16 min-h-screen bg-gradient-to-br from-gray-50 to-white">
+    <div class="container-custom">
+      <!-- Header Section -->
+      <div class="text-center mb-12" data-aos="fade-up">
+        <h1 class="text-5xl md:text-6xl font-bold text-terpel-primary mb-4">
+          Escuelas Colombia
+        </h1>
+        <h2 class="text-2xl text-terpel-secondary mb-6">
+          Selecciona tu Regional
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+          Encuentra el cronograma de formación de tu región haciendo clic directamente en el mapa interactivo
+        </p>
+        <div class="w-24 h-1 bg-terpel-primary mx-auto"></div>
+      </div>
+      
+      <!-- Mapa Interactivo -->
+      <div class="mb-12">
+        <Mapa />
+      </div>
+      
+      <!-- Información adicional -->
+      <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div class="bg-white rounded-lg shadow-lg p-6" data-aos="fade-right">
+          <div class="flex items-center mb-4">
+            <svg class="w-8 h-8 text-terpel-primary mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <h3 class="text-xl font-semibold text-terpel-secondary">Regionales Disponibles</h3>
+          </div>
+          <ul class="space-y-2">
+            <li class="flex items-center text-gray-700">
+              <span class="w-3 h-3 bg-green-500 rounded-full mr-3"></span>
+              <span class="font-medium">Antioquia</span> - Cronograma disponible
+            </li>
+            <li class="flex items-center text-gray-700">
+              <span class="w-3 h-3 bg-yellow-500 rounded-full mr-3"></span>
+              <span class="font-medium">Centro</span> - Próximamente
+            </li>
+            <li class="flex items-center text-gray-700">
+              <span class="w-3 h-3 bg-yellow-500 rounded-full mr-3"></span>
+              <span class="font-medium">Norte</span> - Próximamente
+            </li>
+            <li class="flex items-center text-gray-700">
+              <span class="w-3 h-3 bg-yellow-500 rounded-full mr-3"></span>
+              <span class="font-medium">Otras regionales</span> - En desarrollo
+            </li>
+          </ul>
+        </div>
+        
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-6" data-aos="fade-left">
+          <div class="flex items-center mb-4">
+            <svg class="w-8 h-8 text-blue-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <h3 class="text-xl font-semibold text-blue-800">¿Necesitas ayuda?</h3>
+          </div>
+          <p class="text-blue-700 mb-4">
+            Si tu regional no aparece en el mapa o necesitas información adicional sobre los cronogramas de formación.
+          </p>
+          <div class="space-y-2 text-sm text-blue-600">
+            <p>• Contacta a tu coordinador de formación local</p>
+            <p>• Verifica las fechas de actualización</p>
+            <p>• Consulta próximas convocatorias</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <Footer />
+</Layout>

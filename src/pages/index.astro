@@ -1,6 +1,54 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import '../css/style.css'
+import Navigation from '../components/Navigation.astro';
+import ProgressBar from '../components/Progress_bar.astro';
+import Carousel from '../components/Carousel.astro';
+import Temas from '../components/Temas.astro';
+import InfoEscuelas from '../components/InfoEscuelas.astro';
+import Metodologias from '../components/Metodologias.astro';
+import Footer from '../components/Footer.astro';
+import '../css/style.css';
+
+// Datos del carrusel
+const carouselItems = [
+  {
+    src: "/media/img/EDS Confiable.png",
+    alt: "EDS Confiable - Campo de Entrenamiento",
+    title: "EDS Confiable"
+  },
+  {
+    src: "/media/img/Caravana Video.png",
+    alt: "Caravana de Formación",
+    title: "Caravana"
+  },
+  {
+    src: "/media/img/EDS Calle 28_161.jpg",
+    alt: "Estación de Servicio Calle 28",
+    title: "EDS Calle 28"
+  },
+  {
+    src: "/media/img/EDS Calle 28_174.jpg",
+    alt: "Estación de Servicio en Funcionamiento",
+    title: "EDS en Operación"
+  },
+  {
+    src: "/media/img/Escuela de Administradores.png",
+    alt: "Escuela de Administradores",
+    title: "Escuela de Administradores"
+  }
+];
 ---
-<Layout>
-<Layout />
+
+<Layout title="Escuelas 360 - Inicio" description="Plataforma de formación y capacitación Terpel. Conoce nuestros programas de Escuela de Promotores, Administradores y EDS Confiable.">
+  <Navigation />
+  <ProgressBar />
+  
+  <main>
+    <Carousel items={carouselItems} id="carouselMain" autoplay={true} />
+    <Temas />
+    <InfoEscuelas />
+    <Metodologias />
+  </main>
+  
+  <Footer />
+</Layout>
