@@ -24,22 +24,29 @@ const { title = "Escuelas 360", description = "Plataforma de formación Terpel" 
   <body class="font-terpel text-terpel-light bg-white antialiased">
     <slot />
     
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="../scripts/reveal-animations.js"></script>
     <script>
-      import AOS from 'aos';
       // Inicializar AOS cuando el DOM esté listo
       document.addEventListener('DOMContentLoaded', function() {
-        try {
-          AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true,
-            offset: 120
-          });
-          console.log('✅ AOS inicializado correctamente');
-        } catch (error) {
-          console.error('❌ Error inicializando AOS:', error);
-        }
+        // Esperar un poco para que AOS se cargue completamente
+        setTimeout(function() {
+          try {
+            if (typeof AOS !== 'undefined') {
+              AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true,
+                offset: 120
+              });
+              console.log('✅ AOS inicializado correctamente');
+            } else {
+              console.warn('⚠️ AOS no disponible, continuando sin animaciones');
+            }
+          } catch (error) {
+            console.error('❌ Error inicializando AOS:', error);
+          }
+        }, 100);
       });
     </script>
   </body>

@@ -6,63 +6,89 @@ const archivosPDF = [
   "Boletín EDS Confiable N 78.pdf",
   "Boletín EDS Confiable N 80.pdf"
 ];
-
-// import fs from 'fs';
-// import path from 'path';
-
-// // Construye la ruta absoluta
-// const boletinesPath = path.join(process.cwd(), 'public', 'media', 'docs', 'Boletines');
-
-// console.log("Iniciando lectura");
-//     const files = fs.readdirSync(boletinesPath);
-//     console.log("Finalizando lectura");
-//     console.log(files);
-
 ---
 
-<!-- Estilos migrados a Tailwind CSS -->
+<!-- Componente con miniaturas de PDF generadas automáticamente -->
 
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 p-6">
-  {archivosPDF.map((archivo) => (
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 p-6">
+  {archivosPDF.map((archivo, index) => (
     <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2 group">
-      <div class="p-6 border-b border-gray-200">
-        <h3 class="text-xl font-bold text-terpel-secondary text-center">
+      <div class="p-4 border-b border-gray-200">
+        <h3 class="text-lg font-bold text-terpel-secondary text-center">
           {archivo.replace('.pdf', '').replace('Boletín EDS Confiable N ', 'Boletín N°')}
         </h3>
       </div>
       
-      <div class="relative bg-gray-50">
-        <iframe 
-          src={`/media/docs/Boletines/${archivo}`} 
-          loading="lazy"
-          title={`Boletín ${archivo}`}
-          class="w-full h-96 border-0 transition-all duration-300 group-hover:scale-105"
-        ></iframe>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+      <!-- Contenedor de la miniatura -->
+      <div class="relative bg-gray-100 aspect-[3/4] overflow-hidden">
+        <!-- Canvas donde se renderizará la miniatura -->
+        <canvas 
+          id={`pdf-thumbnail-${index}`}
+          data-pdf-url={`/media/docs/Boletines/${archivo}`}
+          class="w-full h-full object-cover transition-all duration-300 group-hover:scale-105 cursor-pointer"
+        ></canvas>
+        
+        <!-- Loading placeholder -->
+        <div 
+          id={`loading-${index}`}
+          class="absolute inset-0 flex items-center justify-center bg-gray-200"
+        >
+          <div class="flex flex-col items-center">
+            <div class="animate-spin rounded-full h-12 w-12 border-4 border-terpel-primary border-t-transparent mb-3"></div>
+            <p class="text-gray-600 text-sm">Generando vista previa...</p>
+          </div>
+        </div>
+        
+        <!-- Error fallback -->
+        <div 
+          id={`error-${index}`}
+          class="absolute inset-0 flex items-center justify-center bg-gray-200 hidden"
+        >
+          <div class="flex flex-col items-center text-center p-4">
+            <svg class="w-16 h-16 text-gray-400 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+            <p class="text-gray-600 text-sm">Vista previa no disponible</p>
+            <p class="text-gray-500 text-xs">Haz clic para abrir el PDF</p>
+          </div>
+        </div>
+        
+        <!-- Overlay hover -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+        
+        <!-- Play button overlay -->
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+          <div class="bg-white/90 rounded-full p-3 shadow-lg">
+            <svg class="w-8 h-8 text-terpel-primary" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </div>
+        </div>
       </div>
       
-      <div class="p-6 bg-white">
-        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+      <!-- Información y botones -->
+      <div class="p-4 bg-white">
+        <div class="flex flex-col sm:flex-row gap-2 justify-center">
           <a 
             href={`/media/docs/Boletines/${archivo}`} 
             target="_blank" 
             rel="noopener noreferrer"
-            class="flex items-center justify-center px-4 py-2 border-2 border-terpel-primary text-terpel-primary rounded-lg font-medium transition-all duration-300 hover:bg-terpel-primary hover:text-white focus:outline-none focus:ring-2 focus:ring-terpel-primary focus:ring-opacity-50"
+            class="flex items-center justify-center px-3 py-2 text-sm border-2 border-terpel-primary text-terpel-primary rounded-lg font-medium transition-all duration-300 hover:bg-terpel-primary hover:text-white focus:outline-none focus:ring-2 focus:ring-terpel-primary focus:ring-opacity-50"
           >
-            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
             </svg>
-            Abrir en nueva ventana
+            Ver PDF
           </a>
           <a 
             href={`/media/docs/Boletines/${archivo}`} 
             download={archivo}
-            class="flex items-center justify-center px-4 py-2 bg-terpel-primary text-white rounded-lg font-medium transition-all duration-300 hover:bg-red-700 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-terpel-primary focus:ring-opacity-50"
+            class="flex items-center justify-center px-3 py-2 text-sm bg-terpel-primary text-white rounded-lg font-medium transition-all duration-300 hover:bg-red-700 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-terpel-primary focus:ring-opacity-50"
           >
-            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
             </svg>
-            Descargar PDF
+            Descargar
           </a>
         </div>
       </div>
@@ -70,47 +96,298 @@ const archivosPDF = [
   ))}
 </div>
 
+<!-- Cargar PDF.js desde CDN - Versión estable -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+
 <script is:inline>
-  // Script para manejar la funcionalidad de PDFs
-  document.addEventListener('DOMContentLoaded', function() {
-    // Mejorar la carga de PDFs con loading lazy
-    const iframes = document.querySelectorAll('iframe[src*=".pdf"]');
+  // Configurar PDF.js - Mover la configuración a la función de inicialización
+  console.log('📚 Script PDF cargado, esperando inicialización...');
+
+  // Función para generar miniatura de PDF
+  async function generatePDFThumbnail(canvas, pdfUrl, index) {
+    const loadingElement = document.getElementById(`loading-${index}`);
+    const errorElement = document.getElementById(`error-${index}`);
     
-    iframes.forEach(function(iframe, index) {
-      // Agregar loading="lazy" si no está presente
-      if (!iframe.hasAttribute('loading')) {
-        iframe.setAttribute('loading', 'lazy');
+    console.log(`🔄 Iniciando generación de miniatura para: ${pdfUrl}`);
+    
+    try {
+      // Mostrar loading
+      loadingElement.style.display = 'flex';
+      errorElement.style.display = 'none';
+      
+      // Verificar que PDF.js esté disponible
+      if (typeof pdfjsLib === 'undefined') {
+        throw new Error('PDF.js no está disponible');
       }
       
-      // Agregar evento de carga para mostrar indicador
-      iframe.addEventListener('load', function() {
-        console.log('PDF ' + (index + 1) + ' cargado correctamente');
+      console.log(`📄 Cargando PDF: ${pdfUrl}`);
+      
+      // Configurar opciones de carga
+      const loadingTask = pdfjsLib.getDocument({
+        url: pdfUrl,
+        verbosity: 0, // Reducir logs
+        cMapUrl: 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/cmaps/',
+        cMapPacked: true,
+        disableAutoFetch: false,
+        disableStream: false,
+        disableRange: false
       });
       
-      // Manejar errores de carga
-      iframe.addEventListener('error', function() {
-        console.error('Error al cargar PDF ' + (index + 1));
-        // Mostrar mensaje de error al usuario
-        const errorMessage = document.createElement('div');
-        errorMessage.className = 'alert alert-warning';
-        errorMessage.innerHTML = 
-          '<h6>Error al cargar el documento</h6>' +
-          '<p>No se pudo cargar el PDF. <a href="' + iframe.src + '" target="_blank">Abrir en nueva ventana</a></p>';
-        
-        if (iframe.parentNode) {
-          iframe.parentNode.insertBefore(errorMessage, iframe.nextSibling);
-          iframe.style.display = 'none';
+      // Agregar listener de progreso
+      loadingTask.onProgress = function(progress) {
+        if (progress.total > 0) {
+          const percent = Math.round((progress.loaded / progress.total) * 100);
+          console.log(`📊 Progreso carga PDF ${index + 1}: ${percent}%`);
         }
+      };
+      
+      const pdf = await loadingTask.promise;
+      console.log(`✅ PDF cargado. Páginas: ${pdf.numPages}`);
+      
+      // Obtener la primera página
+      const page = await pdf.getPage(1);
+      console.log(`📖 Primera página obtenida`);
+      
+      // Obtener dimensiones del contenedor
+      const containerWidth = canvas.parentElement.clientWidth || 300;
+      const containerHeight = canvas.parentElement.clientHeight || 400;
+      
+      console.log(`📐 Contenedor: ${containerWidth}x${containerHeight}`);
+      
+      // Obtener devicePixelRatio para alta resolución
+      const devicePixelRatio = window.devicePixelRatio || 1;
+      console.log(`🖥️ Device Pixel Ratio: ${devicePixelRatio}`);
+      
+      // Calcular escala para ajustar al contenedor manteniendo aspecto
+      const viewport = page.getViewport({ scale: 1.0 });
+      console.log(`📏 Viewport original: ${viewport.width}x${viewport.height}`);
+      
+      const scaleX = containerWidth / viewport.width;
+      const scaleY = containerHeight / viewport.height;
+      const baseScale = Math.min(scaleX, scaleY) * 0.9; // Aumentado para mejor ajuste
+      
+      // Aumentar la escala para mayor calidad (renderizar a mayor resolución)
+      const highResScale = baseScale * devicePixelRatio * 1.5; // Factor adicional para calidad
+      const scaledViewport = page.getViewport({ scale: highResScale });
+      console.log(`🔍 Escala base: ${baseScale.toFixed(2)}, Escala alta resolución: ${highResScale.toFixed(2)}`);
+      console.log(`📐 Nuevo tamaño renderizado: ${scaledViewport.width}x${scaledViewport.height}`);
+      
+      // Configurar dimensiones del canvas (alta resolución)
+      canvas.width = scaledViewport.width;
+      canvas.height = scaledViewport.height;
+      
+      // Configurar el tamaño visual del canvas (tamaño real en pantalla)
+      const displayWidth = scaledViewport.width / devicePixelRatio / 1.5;
+      const displayHeight = scaledViewport.height / devicePixelRatio / 1.5;
+      
+      canvas.style.width = displayWidth + 'px';
+      canvas.style.height = displayHeight + 'px';
+      canvas.style.maxWidth = '100%';
+      canvas.style.maxHeight = '100%';
+      canvas.style.objectFit = 'contain';
+      canvas.style.display = 'block';
+      canvas.style.margin = '0 auto';
+      
+      // Configurar el contexto para alta calidad
+      const context = canvas.getContext('2d');
+      context.imageSmoothingEnabled = true;
+      context.imageSmoothingQuality = 'high';
+      
+      console.log(`🎨 Canvas: ${canvas.width}x${canvas.height}, Display: ${displayWidth}x${displayHeight}`);
+      
+      // Renderizar la página con configuración de alta calidad
+      const renderContext = {
+        canvasContext: context,
+        viewport: scaledViewport,
+        intent: 'display', // Optimizar para visualización
+        renderInteractiveForms: false, // No renderizar formularios para mejor rendimiento
+        annotationMode: 0 // No mostrar anotaciones
+      };
+      
+      console.log(`🎨 Iniciando renderizado en alta calidad...`);
+      await page.render(renderContext).promise;
+      
+      // Ocultar loading y mostrar canvas
+      loadingElement.style.display = 'none';
+      console.log(`✅ ¡Miniatura generada exitosamente para PDF ${index + 1}!`);
+      
+      // Agregar click listener para abrir PDF
+      canvas.addEventListener('click', function() {
+        console.log(`👆 Click en miniatura ${index + 1} - Abriendo PDF`);
+        window.open(pdfUrl, '_blank');
       });
-    });
+      
+    } catch (error) {
+      console.error(`❌ Error detallado generando miniatura para PDF ${index + 1}:`, {
+        error: error.message,
+        stack: error.stack,
+        pdfUrl: pdfUrl,
+        type: error.name
+      });
+      
+      // Mostrar error y ocultar loading
+      loadingElement.style.display = 'none';
+      errorElement.style.display = 'flex';
+      
+      // Actualizar mensaje de error con más detalles
+      const errorText = errorElement.querySelector('p');
+      if (errorText) {
+        errorText.textContent = `Error: ${error.message}`;
+      }
+      
+      // Agregar click listener para abrir PDF incluso en caso de error
+      errorElement.addEventListener('click', function() {
+        console.log(`👆 Click en error ${index + 1} - Abriendo PDF directamente`);
+        window.open(pdfUrl, '_blank');
+      });
+    }
+  }
+
+  // Función para inicializar las miniaturas
+  function initializePDFThumbnails() {
+    console.log('🚀 Inicializando generador de miniaturas PDF...');
     
-    // Funcionalidad para botones de descarga de PDFs
+    // Verificar si PDF.js está disponible
+    if (typeof pdfjsLib === 'undefined') {
+      console.error('❌ PDF.js no está disponible. Las miniaturas no se generarán.');
+      
+      // Mostrar error en todos los canvas
+      const canvases = document.querySelectorAll('canvas[data-pdf-url]');
+      canvases.forEach((canvas, index) => {
+        const loadingElement = document.getElementById(`loading-${index}`);
+        const errorElement = document.getElementById(`error-${index}`);
+        
+        if (loadingElement) loadingElement.style.display = 'none';
+        if (errorElement) {
+          errorElement.style.display = 'flex';
+          const errorText = errorElement.querySelector('p');
+          if (errorText) {
+            errorText.textContent = 'PDF.js no disponible';
+          }
+        }
+        
+        const pdfUrl = canvas.getAttribute('data-pdf-url');
+        errorElement.addEventListener('click', function() {
+          window.open(pdfUrl, '_blank');
+        });
+      });
+      
+      return;
+    }
+
+    // Configurar PDF.js Worker AQUÍ
+    try {
+      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+      console.log('✅ PDF.js Worker configurado correctamente');
+    } catch (error) {
+      console.error('❌ Error configurando PDF.js Worker:', error);
+    }
+
+    console.log('✅ PDF.js disponible, configurando miniaturas...');
+
+    // Generar miniaturas para todos los PDFs
+    const canvases = document.querySelectorAll('canvas[data-pdf-url]');
+    console.log(`📋 Encontrados ${canvases.length} PDFs para procesar`);
+    
+    canvases.forEach((canvas, index) => {
+      const pdfUrl = canvas.getAttribute('data-pdf-url');
+      console.log(`📄 PDF ${index + 1}: ${pdfUrl}`);
+      
+      // Usar IntersectionObserver para lazy loading
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            console.log(`👀 PDF ${index + 1} visible, generando miniatura...`);
+            generatePDFThumbnail(canvas, pdfUrl, index);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        rootMargin: '100px', // Aumentado para cargar antes
+        threshold: 0.1
+      });
+      
+      observer.observe(canvas);
+    });
+  }
+  
+  // Inicializar cuando el DOM esté listo con delay para PDF.js
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log('📄 DOM cargado, esperando PDF.js...');
+    
+    // Intentar inicializar inmediatamente
+    if (typeof pdfjsLib !== 'undefined') {
+      initializePDFThumbnails();
+    } else {
+      // Si PDF.js no está disponible, esperar un poco
+      console.log('⏳ PDF.js no disponible aún, esperando...');
+      
+      let attempts = 0;
+      const maxAttempts = 10;
+      const checkInterval = 500; // 500ms
+      
+      const checkPDFJS = setInterval(function() {
+        attempts++;
+        console.log(`🔍 Intento ${attempts}/${maxAttempts} - Verificando PDF.js...`);
+        
+        if (typeof pdfjsLib !== 'undefined') {
+          console.log('✅ PDF.js ahora disponible!');
+          clearInterval(checkPDFJS);
+          initializePDFThumbnails();
+        } else if (attempts >= maxAttempts) {
+          console.error('❌ PDF.js no se cargó después de múltiples intentos');
+          clearInterval(checkPDFJS);
+          
+          // Mostrar error en todos los elementos
+          const canvases = document.querySelectorAll('canvas[data-pdf-url]');
+          canvases.forEach((canvas, index) => {
+            const loadingElement = document.getElementById(`loading-${index}`);
+            const errorElement = document.getElementById(`error-${index}`);
+            
+            if (loadingElement) loadingElement.style.display = 'none';
+            if (errorElement) {
+              errorElement.style.display = 'flex';
+              const errorText = errorElement.querySelector('p');
+              if (errorText) {
+                errorText.textContent = 'Error cargando PDF.js';
+              }
+            }
+          });
+        }
+      }, checkInterval);
+    }
+    
+    // Funcionalidad para botones de descarga
     const downloadButtons = document.querySelectorAll('a[download]');
     downloadButtons.forEach(function(button) {
       button.addEventListener('click', function(e) {
-        // Agregar analytics o tracking si es necesario
-        console.log('Descargando:', button.getAttribute('href'));
+        console.log('📥 Descargando:', button.getAttribute('href'));
       });
     });
+    
+    // Analytics para botones "Ver PDF"
+    const viewButtons = document.querySelectorAll('a[target="_blank"]:not([download])');
+    viewButtons.forEach(function(button) {
+      button.addEventListener('click', function(e) {
+        console.log('👁️ Abriendo PDF:', button.getAttribute('href'));
+      });
+    });
+  });
+
+  // Manejar redimensionado de ventana
+  let resizeTimeout;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(function() {
+      console.log('📏 Redimensionando ventana, regenerando miniaturas...');
+      // Regenerar miniaturas si es necesario
+      const canvases = document.querySelectorAll('canvas[data-pdf-url]');
+      canvases.forEach((canvas, index) => {
+        if (canvas.width > 0) { // Solo si ya se generó la miniatura
+          const pdfUrl = canvas.getAttribute('data-pdf-url');
+          generatePDFThumbnail(canvas, pdfUrl, index);
+        }
+      });
+    }, 250);
   });
 </script>
