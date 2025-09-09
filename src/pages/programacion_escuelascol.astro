@@ -4,28 +4,23 @@ import Navigation from '../components/Navigation.astro';
 import ProgressBar from '../components/Progress_bar.astro';
 import Footer from '../components/Footer.astro';
 import Mapa from '../components/Mapa.astro';
+import HeroWithBackground from '../components/HeroWithBackground.astro';
 ---
 
 <Layout title="Programación Escuelas Colombia - Escuelas 360" description="Cronogramas de formación por regionales de Colombia">
   <Navigation />
   <ProgressBar />
   
-  <main class="pt-10 pb-16 min-h-screen bg-gradient-to-br from-gray-50 to-white">
+  <main class="pb-16 min-h-screen bg-gradient-to-br from-gray-50 to-white">
+    <HeroWithBackground
+        title="Cronograma Escuelas Colombia y EDS Confiable"
+        subtitle="Selecciona tu Regional"
+        description="Conoce cual es tu regional y accede al cronograma general!!! <br> Haciendo clic directamente en el mapa interactivo serás redirigido al <strong>cronograma en linea</strong> donde podrás filtrar por regional y fecha."
+        backgroundImage="/media/img/EDS Calle 28_161.jpg"
+        height="medium"
+        overlay="medium"
+      />
     <div class="container-custom">
-      <!-- Header Section -->
-      <div class="text-center mb-12" data-aos="fade-up">
-        <h1 class="text-5xl md:text-6xl font-bold text-terpel-primary mb-4">
-          Escuelas Colombia
-        </h1>
-        <h2 class="text-2xl text-terpel-secondary mb-6">
-          Selecciona tu Regional
-        </h2>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-          Conoce cual es tu regional y accede al cronograma general!!! <br> Haciendo clic directamente en el mapa interactivo serás redirigido al <strong>cronograma en linea</strong> donde podrás filtrar por regional y fecha.
-        </p>
-        <div class="w-24 h-1 bg-terpel-primary mx-auto"></div>
-      </div>
-      
       <!-- Mapa Interactivo -->
       <div class="mb-12">
         <Mapa />

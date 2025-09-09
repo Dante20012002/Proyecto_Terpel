@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/Navigation.astro';
 import ProgressBar from '../components/Progress_bar.astro';
+import HeroWithBackground from '../components/HeroWithBackground.astro';
 import Footer from '../components/Footer.astro';
 import '../css/style.css';
 
@@ -32,32 +33,17 @@ const metodologias = [
   <ProgressBar />
   
   <main>
-    <!-- Hero Section -->
-    <section class="hero-section pt-24 pb-16">
-      <div class="container-custom">
-        <div class="grid lg:grid-cols-2 gap-12 items-center min-h-[50vh]">
-          <div class="space-y-6" data-aos="fade-right">
-            <h1 class="text-5xl md:text-6xl font-bold text-white leading-tight">
-              Escuelas Colombia
-            </h1>
-            <p class="text-xl text-terpel-light leading-relaxed">
-              Formamos a los mejores profesionales del sector energético con programas 
-              especializados que combinan teoría y práctica para garantizar la excelencia operativa.
-            </p>
-            <a href="/programacion_escuelascol/" class="btn-primary inline-block text-lg">
-              Ver Cronogramas
-            </a>
-          </div>
-          <div class="text-center" data-aos="fade-left">
-            <img 
-              src="/media/img/EDS Calle 28_161.jpg" 
-              alt="Terpel Escuelas" 
-              class="w-full max-w-2xl mx-auto rounded-lg shadow-xl"
-            >
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- Hero Section with Background -->
+    <HeroWithBackground
+      title="Escuelas Colombia"
+      subtitle="Formación Profesional"
+      description="Formamos a los mejores profesionales del sector energético con programas especializados que combinan teoría y práctica para garantizar la excelencia operativa."
+      backgroundImage="/media/img/EDS Calle 28_161.jpg"
+      ctaText="Ver Cronogramas"
+      ctaLink="/programacion_escuelascol/"
+      height="large"
+      overlay="medium"
+    />
 
     <!-- Metodologías Section -->
     <section class="py-16 bg-white">

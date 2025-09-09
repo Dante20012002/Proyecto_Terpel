@@ -16,14 +16,14 @@ const {
 } = Astro.props;
 ---
 
-<section class="py-16 lg:py-20 bg-terpel-secondary" data-aos="fade-up">
+<section class="section-padding bg-terpel-secondary" data-aos="fade-up">
   <div class="container-custom">
-    <div class="grid lg:grid-cols-2 gap-12 items-center">
-      <div class="space-y-6" data-aos="fade-right">
-        <h2 class="text-3xl lg:text-4xl font-bold text-terpel-light leading-tight">
+    <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+      <div class="space-y-4 lg:space-y-6" data-aos="fade-right">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-terpel-light leading-tight">
           {title}
         </h2>
-        <p class="text-lg text-terpel-accent leading-relaxed">
+        <p class="text-base sm:text-lg text-terpel-accent leading-relaxed">
           {description}
         </p>
       </div>
@@ -57,14 +57,15 @@ const {
             </div>
             
             <!-- Texto informativo en la parte inferior -->
-            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3 sm:p-4 lg:p-6">
               <div class="text-white">
-                <h3 class="text-xl font-bold mb-2">{videoTitle}</h3>
-                <div class="flex items-center text-sm opacity-90">
-                  <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <h3 class="text-lg sm:text-xl font-bold mb-1 sm:mb-2">{videoTitle}</h3>
+                <div class="flex items-center text-xs sm:text-sm opacity-90">
+                  <svg class="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
                   </svg>
-                  Haz clic para ver el video
+                  <span class="hidden sm:inline">Haz clic para ver el video</span>
+                  <span class="sm:hidden">Ver video</span>
                 </div>
               </div>
             </div>

@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/Navigation.astro';
 import ProgressBar from '../components/Progress_bar.astro';
+import HeroWithBackground from '../components/HeroWithBackground.astro';
 import AcercaRedVirtualComponent from '../components/AcercaRedVirtual.astro';
 import Footer from '../components/Footer.astro';
 ---
@@ -11,6 +12,18 @@ import Footer from '../components/Footer.astro';
   <ProgressBar />
   
   <main>
+    <!-- Hero Section with Background -->
+    <HeroWithBackground
+      title="Red Virtual"
+      subtitle="Cápsulas Informativas"
+      description="Descubre las cápsulas de Red Virtual disponibles en Clase T que te ayudarán a solucionar contratiempos con el sistema POS y mejorar tu experiencia operativa."
+      backgroundImage="/media/img/Red Virtual Video.png"
+      ctaText="Ver Cápsulas"
+      ctaLink="#capsulas"
+      height="medium"
+      overlay="medium"
+    />
+    
     <AcercaRedVirtualComponent />
   </main>
   

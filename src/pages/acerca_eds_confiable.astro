@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/Navigation.astro';
 import ProgressBar from '../components/Progress_bar.astro';
+import HeroWithBackground from '../components/HeroWithBackground.astro';
 import Footer from '../components/Footer.astro';
 ---
 
@@ -9,28 +10,21 @@ import Footer from '../components/Footer.astro';
   <Navigation />
   <ProgressBar />
   
-  <main class="pt-24 pb-16 min-h-screen bg-gradient-to-br from-gray-50 to-white">
-    <div class="container-custom">
-      <!-- Hero Section -->
-      <div class="text-center mb-16" data-aos="fade-up">
-        <div class="flex justify-center items-center mb-6">
-          <img
-            class="w-auto h-32 md:h-40 mx-auto"
-            src="/media/img/Logo Terpel Escuelas.png"
-            alt="Escuelas Terpel"
-          >
-        </div>
-        <h1 class="text-4xl md:text-6xl font-bold text-terpel-secondary mb-6">
-          EDS Confiable
-        </h1>
-        <h2 class="text-2xl md:text-3xl text-terpel-primary mb-6">
-          Sistema Operativo Integral para Estaciones de Servicio
-        </h2>
-        <p class="text-xl text-gray-600 max-w-4xl mx-auto mb-8">
-          Una solución completa que integra seguridad, salud en el trabajo, gestión ambiental y control de calidad del combustible para garantizar operaciones excelentes y seguras.
-        </p>
-        <div class="w-24 h-1 bg-terpel-primary mx-auto"></div>
-      </div>
+  <main>
+    <!-- Hero Section with Background -->
+    <HeroWithBackground
+      title="EDS Confiable"
+      subtitle="Sistema Operativo Integral"
+      description="Una solución completa que integra seguridad, salud en el trabajo, gestión ambiental y control de calidad del combustible para garantizar operaciones excelentes y seguras."
+      backgroundImage="/media/img/EDS Confiable.png"
+      ctaText="Ver Boletines"
+      ctaLink="/boletin_qnlp/"
+      height="large"
+      overlay="dark"
+    />
+    
+    <div class="py-16 min-h-screen bg-gradient-to-br from-gray-50 to-white">
+      <div class="container-custom">
 
       <!-- ¿Qué es EDS Confiable? -->
       <section class="mb-16" data-aos="fade-up">

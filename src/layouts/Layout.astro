@@ -7,14 +7,14 @@ export interface Props {
   description?: string;
 }
 
-const { title = "Escuelas 360", description = "Plataforma de formación Terpel" } = Astro.props;
+const { title = "Escuelas Terpel", description = "Plataforma de formación Terpel" } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="es" class="scroll-smooth no-scrollbar">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />

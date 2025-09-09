@@ -1,0 +1,98 @@
+---
+export interface Props {
+  title: string;
+  subtitle?: string;
+  description?: string;
+  backgroundImage: string;
+  ctaText?: string;
+  ctaLink?: string;
+  height?: 'small' | 'medium' | 'large';
+  overlay?: 'light' | 'medium' | 'dark';
+}
+
+const {
+  title,
+  subtitle,
+  description,
+  backgroundImage,
+  ctaText,
+  ctaLink,
+  height = 'medium',
+  overlay = 'medium'
+} = Astro.props;
+
+const heightClasses = {
+  small: 'min-h-[40vh] lg:min-h-[50vh]',
+  medium: 'min-h-[60vh] lg:min-h-[70vh]',
+  large: 'min-h-[80vh] lg:min-h-[90vh]'
+};
+
+const overlayClasses = {
+  light: 'bg-black/30',
+  medium: 'bg-black/50',
+  dark: 'bg-black/70'
+};
+---
+
+<section 
+  class={`relative ${heightClasses[height]} flex items-center justify-center overflow-hidden`}
+  style={`background-image: url('${backgroundImage}'); background-size: cover; background-position: center; background-attachment: fixed;`}
+>
+  <!-- Overlay -->
+  <div class={`absolute inset-0 ${overlayClasses[overlay]}`}></div>
+  
+  <!-- Contenido -->
+  <div class="relative z-10 container-custom text-center text-white">
+    <div class="max-w-4xl mx-auto space-y-6" data-aos="fade-up">
+      {subtitle && (
+        <div class="inline-block bg-terpel-primary/90 text-white px-6 py-2 rounded-full text-sm font-semibold uppercase tracking-wide mb-4">
+          {subtitle}
+        </div>
+      )}
+      
+      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+        {title}
+      </h1>
+      
+      {description && (
+        <p class="text-lg sm:text-xl md:text-2xl text-gray-100 leading-relaxed max-w-3xl mx-auto">
+          {description}
+        </p>
+      )}
+      
+      {ctaText && ctaLink && (
+        <div class="pt-6">
+          <a 
+            href={ctaLink} 
+            class="inline-block bg-terpel-primary hover:bg-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+          >
+            {ctaText}
+          </a>
+        </div>
+      )}
+    </div>
+  </div>
+  
+  <!-- Indicador de scroll -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+    </svg>
+  </div>
+</section>
+
+<style>
+  /* Parallax effect for desktop */
+  @media (min-width: 1024px) {
+    section {
+      background-attachment: fixed;
+    }
+  }
+  
+  /* Disable parallax on mobile for better performance */
+  @media (max-width: 1023px) {
+    section {
+      background-attachment: scroll !important;
+    }
+  }
+</style>
