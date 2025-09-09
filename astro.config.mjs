@@ -1,15 +1,12 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-import node from '@astrojs/node';
+import vercel from '@astrojs/vercel/serverless';
 import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  adapter: node({
-    mode: 'standalone'
-  }),
-  site: "https://github.com/Dante20012002/Proyecto_Terpel",
-  // base: "Proyecto_Terpel",
+  output: 'server',
+  adapter: vercel(),
   integrations: [
     tailwind({
       applyBaseStyles: false, // Mantenemos control sobre los estilos base
