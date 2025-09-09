@@ -2,15 +2,17 @@
 export interface Props {
   title?: string;
   description?: string;
-  videoSrc?: string;
+  videoUrl?: string;
   videoTitle?: string;
+  thumbnailSrc?: string;
 }
 
 const {
   title = "Conoce todos los programas que capacitamos en Terpel",
   description = "Enterate de todos nuestros proyectos y módulos de capacitación en los que puedes ingresar. Realiza nuestras capacitaciones de Escuela de Promotores, Escuela de Administradores, EDS Confiable, entre muchos otros, en donde obtendras las certificaciones necesarias para tus labores en las estaciones de servicio.",
-  videoSrc = "/media/videos/video_escuelas_terpel.mp4",
-  videoTitle = "Video Escuelas Terpel"
+  videoUrl = "https://grupospira-my.sharepoint.com/personal/santiago_puentes_spira_co/_layouts/15/stream.aspx?id=%2Fpersonal%2Fsantiago%5Fpuentes%5Fspira%5Fco%2FDocuments%2FSANTIAGO%20PUENTES%2FVideo%20Escuelas%20Terpel%20v3%2Emp4&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&ga=1&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2E8e97dada%2D6f5f%2D4972%2D9ba8%2Dfbcdab36d61d",
+  videoTitle = "Video Escuelas Terpel",
+  thumbnailSrc = "/media/img/Escuela de Promotores.png"
 } = Astro.props;
 ---
 
@@ -27,38 +29,51 @@ const {
       </div>
       
       <div class="relative" data-aos="fade-left">
-        <div class="relative aspect-video rounded-lg overflow-hidden shadow-2xl bg-black">
-          <video
-            width="100%"
-            height="100%"
-            controls
-            preload="metadata"
-            class="w-full h-full object-cover"
-            poster="/media/img/Logo Terpel Escuelas.png"
+        <div class="relative aspect-video rounded-lg overflow-hidden shadow-2xl bg-black group">
+          <!-- Imagen clickeable del video -->
+          <a 
+            href={videoUrl} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="block w-full h-full relative overflow-hidden rounded-lg transition-transform duration-300 group-hover:scale-105"
           >
-            <source src={videoSrc} type="video/mp4">
-            <div class="absolute inset-0 flex items-center justify-center bg-gray-800 text-white">
-              <div class="text-center">
-                <p class="mb-4">Tu navegador no soporta videos HTML5.</p>
-                <a 
-                  href={videoSrc} 
-                  class="btn-primary inline-block"
-                  download
-                >
-                  Descargar video
-                </a>
+            <!-- Imagen de fondo/thumbnail -->
+            <img 
+              src={thumbnailSrc}
+              alt={videoTitle}
+              class="w-full h-full object-cover"
+            />
+            
+            <!-- Overlay oscuro para mejor contraste -->
+            <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300"></div>
+            
+            <!-- Botón de play central -->
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="bg-white/90 hover:bg-white rounded-full p-6 transition-all duration-300 transform group-hover:scale-110 shadow-2xl">
+                <svg class="w-12 h-12 text-terpel-primary ml-1" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
               </div>
             </div>
-          </video>
-          
-          <!-- Play button overlay -->
-          <div class="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-            <div class="w-16 h-16 bg-terpel-primary rounded-full flex items-center justify-center">
-              <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z"/>
-              </svg>
+            
+            <!-- Texto informativo en la parte inferior -->
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+              <div class="text-white">
+                <h3 class="text-xl font-bold mb-2">{videoTitle}</h3>
+                <div class="flex items-center text-sm opacity-90">
+                  <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                  </svg>
+                  Haz clic para ver el video
+                </div>
+              </div>
             </div>
-          </div>
+            
+            <!-- Indicador de video en esquina superior -->
+            <div class="absolute top-4 right-4 bg-terpel-primary text-white px-3 py-1 rounded-full text-sm font-semibold">
+              VIDEO
+            </div>
+          </a>
         </div>
         
         <!-- Decorative elements -->

@@ -11,7 +11,7 @@ const { title = "Escuelas 360", description = "Plataforma de formación Terpel" 
 ---
 
 <!doctype html>
-<html lang="es" class="scroll-smooth">
+<html lang="es" class="scroll-smooth no-scrollbar">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,30 +24,47 @@ const { title = "Escuelas 360", description = "Plataforma de formación Terpel" 
   <body class="font-terpel text-terpel-light bg-white antialiased">
     <slot />
     
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="../scripts/reveal-animations.js"></script>
     <script>
-      // Inicializar AOS cuando el DOM esté listo
-      document.addEventListener('DOMContentLoaded', function() {
-        // Esperar un poco para que AOS se cargue completamente
-        setTimeout(function() {
-          try {
-            if (typeof AOS !== 'undefined') {
+      // Cargar e inicializar AOS usando import dinámico
+      (async function() {
+        try {
+          // Importar AOS dinámicamente
+          const { default: AOS } = await import('https://cdn.skypack.dev/aos@2.3.4');
+          
+          // Esperar a que el DOM esté listo
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initAOS);
+          } else {
+            initAOS();
+          }
+          
+          function initAOS() {
+            try {
               AOS.init({
                 duration: 800,
                 easing: 'ease-in-out',
                 once: true,
-                offset: 120
+                offset: 120,
+                disable: false,
+                startEvent: 'DOMContentLoaded',
+                initClassName: 'aos-init',
+                animatedClassName: 'aos-animate',
+                useClassNames: false,
+                disableMutationObserver: false,
+                debounceDelay: 50,
+                throttleDelay: 99
               });
               console.log('✅ AOS inicializado correctamente');
-            } else {
-              console.warn('⚠️ AOS no disponible, continuando sin animaciones');
+            } catch (initError) {
+              console.error('❌ Error inicializando AOS:', initError);
             }
-          } catch (error) {
-            console.error('❌ Error inicializando AOS:', error);
           }
-        }, 100);
-      });
+        } catch (error) {
+          console.error('❌ Error cargando AOS:', error);
+          console.warn('⚠️ Continuando sin animaciones AOS');
+        }
+      })();
     </script>
   </body>
 </html>
